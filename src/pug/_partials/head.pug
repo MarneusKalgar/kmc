@@ -1,0 +1,35 @@
+mixin head
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    meta(name="keywords", content="")
+    meta(name="description", content="")
+    <!--[if IE 6]>
+    script(type="text/javascript").
+      location.replace("http://browsehappy.com/");
+    <![endif]-->
+    link(rel="icon", href="assets/img/favicon.png", type="image/png")
+    link(rel="shortcut icon", href="assets/img/favicon.png", type="image/png")
+    link(rel="stylesheet", href="assets/css/app.css", type="text/css", media="screen")
+    //- BEGIN styles for debug panel (remove on stage)
+    //-style.
+    //-  #debug {
+    //-    position: fixed; right: 100px; bottom: 0; z-index: 9999;
+    //-    padding: 10px 10px 10px 70px;
+    //-    font-size: 12px; line-height: 1;
+    //-    background: #e8514a; opacity: 0.8;
+    //-    transform: translate(100%, 0) rotateZ(45deg);
+    //-    transform-origin: 0 100%;
+    //-    transition: all 0.2s ease;
+    //-  }
+    //-  #debug a, #debug button {
+    //-    display: block;
+    //-    margin-top: 8px;
+    //-  }
+    //-  #debug:hover {
+    //-    right: 0;
+    //-    transform: translate(0, 0) rotateZ(0deg);
+    //-  }
+    //- END styles for debug panel
+    title #{title}

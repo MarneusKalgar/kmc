@@ -1,0 +1,7 @@
+mixin product(item)
+  +b.product
+    +e.H3.caption= item.caption
+    +e.H4.type= item.type
+    +e.IMG.img(src="assets/img/products/" + item.src + ".png", alt=item.caption)
+    +e.P.desc= item.desc
+    +e.A.link(href=item.href)
