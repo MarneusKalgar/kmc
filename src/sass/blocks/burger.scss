@@ -1,0 +1,81 @@
+.burger {
+  $self: &;
+  $delay: 0.35s;
+
+  @include position(absolute, 50% null null em(25px));
+  @include size(em(45px), em(45px));
+
+  z-index: 1;
+  transform: translate(0, -50%);
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &.js-isOpened {
+    &::before {
+      opacity: 0;
+      transition: all 0.5s $tfunc-main;
+    }
+
+    #{ $self }__line {
+      background-color: rgba(0,0,0,0);
+
+      &::before {
+        top: 0;
+        transform: rotateZ(-45deg);
+        transition: top $delay $tfunc-main, transform $delay $tfunc-main $delay;
+      }
+
+      &::after {
+        top: 0;
+        transform: rotateZ(45deg);
+        transition: top $delay $tfunc-main, transform $delay $tfunc-main $delay;
+      }
+    }
+
+    // 1024px
+    @include minW($ipad-width) {
+      opacity: 0;
+      visibility: hidden;
+      transition: none;
+    }
+  }
+
+  //== LINE
+  &__line {
+    display: block;
+    @include position(absolute, 50% null null 0);
+    @include size(100%, 5px);
+
+    border-radius: 2px;
+    transform: translateY(-50%);
+    background-color: $color-decor-second;
+    transition: all $delay ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      @include size(100%, 100%);
+
+      border-radius: inherit;
+      background-color: inherit;
+      transform: translate(0, 0) rotateZ(0deg);
+      transform-origin: 50% 50%;
+      transition: top $delay $tfunc-main $delay, transform $delay $tfunc-main 0s, background-color 0.4s ease;
+    }
+
+    &::before {
+      top: em(-11px);
+    }
+
+    &::after {
+      top: em(11px);
+    }
+  }
+  //== LINE
+}

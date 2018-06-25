@@ -1,7 +1,16 @@
 $color-text: #4a4a4a;
+$color-decor-main: #ff4000;
+$color-decor-second: #0176c0; //#0052a6;
+$color-light: #fff;
 
-$ff-default: Arial, Helvetica, sans-serif;
+$ff-default: 'Clear Sans', Arial, Helvetica, sans-serif;
 $font-size-default: 1rem;
+
+$pad-mob: 25px;
+
+$header-mob: 70px;
+
+$tfunc-main: cubic-bezier(0.23, 1, 0.32, 1);
 
 // Media
 $phone-width:     320px;

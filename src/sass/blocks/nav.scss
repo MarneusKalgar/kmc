@@ -1,0 +1,53 @@
+.nav {
+  @include size(100%, 100%);
+
+  overflow: auto;
+
+  //== LIST
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-direction: flex-start;
+    align-items: center;
+    justify-content: center;
+    @include size(100%, 100%);
+  }
+  //== LIST
+
+  //== ITEM
+  &__item {
+    margin-top: 8vmin;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  //== ITEM
+
+  //== LINK
+  &__link {
+    position: relative;
+    padding-bottom: em(5px);
+    font-size: em(16px);
+    color: $color-text;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      @include position(absolute, null null 0 0);
+      @include size(100%, 2px);
+
+      background-color: $color-decor-second;
+      transform: scaleX(0);
+      transition: all 0.4s $tfunc-main;
+    }
+
+    &.isCurrent {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+  //== LINK
+}

@@ -15,42 +15,58 @@
   <body>
     <div class="app">
       <div class="header">
+        <button class="burger" type="button"><span class="burger__line"></span>
+        </button><a class="logo header__logo" href="#main"><img class="logo__img" src="assets/img/logo/kmc-logo.png" alt="KMC лого" title=""/></a>
         <div class="header__wrap">
-          <div class="logo">
-          </div>
-          <nav class="header__nav">
-            <div class="header__Ul list">
-              <div class="header__item"><a class="header__link" href="#main">Главная</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#about">О бренде</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#products">Продукция</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#certificates">Сертификаты</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#catalogs">Каталоги</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#leftovers">Остатки на складе</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#objects">Объекты</a>
-              </div>
-              <div class="header__item"><a class="header__link" href="#contacts">Контакты</a>
-              </div>
-            </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a class="nav__link isCurrent" href="#main">Главная</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#about">О бренде</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#production">Продукция</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#certificates">Сертификаты</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#catalogs">Каталоги</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#leftovers">Остатки на складе</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#objects">Объекты</a>
+              </li>
+              <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>
-      <section class="hero" id="main">
+      <section class="hero section" id="main">
         <div class="hero__slider">
-          <div class="hero__track">
-            <div class="hero__sliders">
-              <div class="hero__slider">
+          <div class="hero__track glide__track" data-glide-el="track">
+            <div class="hero__slides glide__slides">
+              <div class="hero__slide glide__slide" style="background-image: url('assets/img/hero/hero-slide-1.jpg')">
+                <div class="hero__inner">
+                  <h2 class="hero__title">Газовая промышленность
+                  </h2>
+                </div>
               </div>
-              <div class="hero__slider">
+              <div class="hero__slide glide__slide" style="background-image: url('assets/img/hero/hero-slide-2.jpg')">
+                <div class="hero__inner">
+                  <h2 class="hero__title">Индивидуальный тепловой пункт
+                  </h2>
+                </div>
               </div>
-              <div class="hero__slider">
+              <div class="hero__slide glide__slide" style="background-image: url('assets/img/hero/hero-slide-3.jpg')">
+                <div class="hero__inner">
+                  <h2 class="hero__title">Нефтяная промышленность
+                  </h2>
+                </div>
               </div>
-              <div class="hero__slider">
+              <div class="hero__slide glide__slide" style="background-image: url('assets/img/hero/hero-slide-4.jpg')">
+                <div class="hero__inner">
+                  <h2 class="hero__title">Теплоэлектроцентрали
+                  </h2>
+                </div>
               </div>
             </div>
           </div>

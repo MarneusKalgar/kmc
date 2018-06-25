@@ -135,7 +135,7 @@ gulp.task('build:styles', () => {
 gulp.task('build:img', () => {
   gulp
     .src(PATH.src.img)
-    .pipe($.changed(PATH.build.img, { hasChanged: $.changed.compareSha1Digest }))
+    // .pipe($.changed(PATH.build.img, { hasChanged: $.changed.compareSha1Digest }))
     .pipe($.cache($.imagemin()))
     .pipe($.size({ title: 'img', showFiles: true }))
     .pipe(gulp.dest(PATH.build.img));
