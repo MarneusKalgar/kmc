@@ -1,13 +1,103 @@
 .hero {
+  position: relative;
   height: 100vh;
 
   //== SLIDE
   &__slide {
     @include size(100vw, 100vh);
 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 em(10px);
+    background-position: 50% 50%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      @include position(absolute, 0 0 0 0);
+
+      z-index: 0;
+      background-color: rgba(#000, 0.2);
+    }
   }
   //== SLIDE
+
+  //== TITLE
+  &__title {
+    position: relative;
+    z-index: 1;
+    font-size: 8vw;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: $color-light;
+    text-shadow: 2px 2px 5px rgba(#000, 0.9);
+
+    &--lg {
+      font-size: 10vw;
+    }
+  }
+  //== TITLE
+
+  //== GLIDE
+  .glide {
+
+    //== ARROW
+    &__arrow {
+      position: absolute;
+      top: 50%;
+      @include size(em(40px), em(40px));
+      transform: translate(0, -50%);
+
+      svg {
+        @include size(100%, 100%);
+        fill: $color-light;
+      }
+
+      &--right {
+        right: 0;
+
+        svg {
+          transform: rotateZ(180deg);
+        }
+      }
+
+      &--left {
+        left: 0;
+      }
+    }
+    //== ARROW
+
+    //== BULLETS
+    &__bullets {
+      @include position(absolute, null null em(10px) 50%);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, 0);
+    }
+    //== BULLETS
+
+    //== BULLET
+    &__bullet {
+      @include size(em(15px), em(15px));
+
+      margin: em(8px);
+      border: 2px solid $color-decor-main;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0);
+      transition: all $tfunc-main 0.4s;
+
+      &--active {
+        background-color: $color-decor-main;
+      }
+    }
+    //== BULLET
+  }
+  //== GLIDE
 }

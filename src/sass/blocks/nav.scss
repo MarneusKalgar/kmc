@@ -28,10 +28,9 @@
   &__link {
     position: relative;
     padding-bottom: em(5px);
-    font-size: em(16px);
+    font-size: em(20px);
     color: $color-text;
     text-decoration: none;
-    text-transform: uppercase;
 
     &::after {
       content: '';

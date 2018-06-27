@@ -1,6 +1,6 @@
 mixin hero
   +b.SECTION.hero.section#main
-    +e.slider
+    +e.slider.glide
       +e.track(class="glide__track", data-glide-el="track")
         +e.slides(class="glide__slides")
           +e.slide(class="glide__slide", style="background-image: url('assets/img/hero/hero-slide-1.jpg')")
@@ -14,4 +14,18 @@ mixin hero
               +e.H2.title Нефтяная промышленность
           +e.slide(class="glide__slide", style="background-image: url('assets/img/hero/hero-slide-4.jpg')")
             +e.inner
-              +e.H2.title Теплоэлектроцентрали
+              +e.H2.title.--lg ТЭЦ
+
+      .glide__arrows(data-glide-el='controls')
+        button.glide__arrow.glide__arrow--left(type="button", data-glide-dir='<')
+          svg.svg(width="10", height="20")
+            use(xlink:href="#chevron")
+        button.glide__arrow.glide__arrow--right(type="button", data-glide-dir='>')
+          svg.svg(width="10", height="20")
+            use(xlink:href="#chevron")
+
+      .glide__bullets(data-glide-el='controls[nav]')
+        button.glide__bullet(type="button", data-glide-dir='=0')
+        button.glide__bullet(type="button", data-glide-dir='=1')
+        button.glide__bullet(type="button", data-glide-dir='=2')
+        button.glide__bullet(type="button", data-glide-dir='=3')

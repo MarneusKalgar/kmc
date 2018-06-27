@@ -2,6 +2,7 @@ include ../../../node_modules/bemto.pug/bemto
 - set_bemto_settings({ modifier: '--' })
 
 include ../_partials/head
+include ../_partials/svg
 include ../blocks/modal
 
 include ../blocks/logo
@@ -31,4 +32,5 @@ html(lang='ru')
       block body
       block footer
     +modal()
+    +svg()
     include ../_partials/scripts

@@ -19,7 +19,12 @@
     z-index: 0;
     padding-top: em($header-mob);
     background-color: $color-light;
-    //transform: translateX(-105%);
+    transform: translateX(-105%);
+    transition: transform .4s $tfunc-main;
+
+    &.isOpened {
+      transform: translateX(0);
+    }
   }
   //== WRAP
 

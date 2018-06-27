@@ -41,7 +41,7 @@
         </div>
       </div>
       <section class="hero section" id="main">
-        <div class="hero__slider">
+        <div class="hero__slider glide">
           <div class="hero__track glide__track" data-glide-el="track">
             <div class="hero__slides glide__slides">
               <div class="hero__slide glide__slide" style="background-image: url('assets/img/hero/hero-slide-1.jpg')">
@@ -64,11 +64,29 @@
               </div>
               <div class="hero__slide glide__slide" style="background-image: url('assets/img/hero/hero-slide-4.jpg')">
                 <div class="hero__inner">
-                  <h2 class="hero__title">Теплоэлектроцентрали
+                  <h2 class="hero__title hero__title--lg">ТЭЦ
                   </h2>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" type="button" data-glide-dir="&lt;">
+              <svg class="svg" width="10" height="20">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </button>
+            <button class="glide__arrow glide__arrow--right" type="button" data-glide-dir="&gt;">
+              <svg class="svg" width="10" height="20">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="glide__bullets" data-glide-el="controls[nav]">
+            <button class="glide__bullet" type="button" data-glide-dir="=0"></button>
+            <button class="glide__bullet" type="button" data-glide-dir="=1"></button>
+            <button class="glide__bullet" type="button" data-glide-dir="=2"></button>
+            <button class="glide__bullet" type="button" data-glide-dir="=3"></button>
           </div>
         </div>
       </section>
@@ -333,6 +351,11 @@
     </div>
     <div class="modal">
     </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="height: 0; width: 0; position: absolute">
+      <symbol id="chevron" viewBox="0 0 404.258 404.258">
+        <path d="M289.927 18l-24-18-151.596 202.129 151.596 202.129 24-18-138.096-184.129z"></path>
+      </symbol>
+    </svg>
     <script src="assets/js/0.app.js"></script>
     <script src="assets/js/app.js"></script>
   </body>

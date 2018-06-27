@@ -3,7 +3,7 @@
   $delay: 0.35s;
 
   @include position(absolute, 50% null null em(25px));
-  @include size(em(45px), em(45px));
+  @include size(em(40px), em(45px));
 
   z-index: 1;
   transform: translate(0, -50%);
@@ -14,7 +14,7 @@
     outline: none;
   }
 
-  &.js-isOpened {
+  &.isActive {
     &::before {
       opacity: 0;
       transition: all 0.5s $tfunc-main;
@@ -48,11 +48,10 @@
   &__line {
     display: block;
     @include position(absolute, 50% null null 0);
-    @include size(100%, 5px);
+    @include size(100%, 4px);
 
-    border-radius: 2px;
     transform: translateY(-50%);
-    background-color: $color-decor-second;
+    background-color: $color-decor-main;
     transition: all $delay ease;
 
     &::before,
