@@ -21,7 +21,7 @@
       @include position(absolute, 0 0 0 0);
 
       z-index: 0;
-      background-color: rgba(#000, 0.2);
+      background-color: rgba($color-dark, 0.2);
     }
   }
   //== SLIDE
@@ -35,7 +35,7 @@
     text-transform: uppercase;
     letter-spacing: 0.01em;
     color: $color-light;
-    text-shadow: 2px 2px 5px rgba(#000, 0.9);
+    text-shadow: 2px 2px 5px rgba($color-dark, 0.9);
 
     &--lg {
       font-size: 10vw;
@@ -59,7 +59,7 @@
       }
 
       &--right {
-        right: 0;
+        right: em(-5px);
 
         svg {
           transform: rotateZ(180deg);
@@ -67,7 +67,7 @@
       }
 
       &--left {
-        left: 0;
+        left: em(-5px);
       }
     }
     //== ARROW

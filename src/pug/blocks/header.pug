@@ -1,9 +1,8 @@
 mixin header
-  +b.header
-    +burger()
+  +b.HEADER.header
+    +burger({"class": "__burger"})
     +logo({"class": "__logo"})
     +e.wrap
-      //- +close({"class": "__close"})
       +b.NAV.nav
         +e.UL.list
           +e.item: +e.A.link.isCurrent(href="#main") Главная

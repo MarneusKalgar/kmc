@@ -10,6 +10,12 @@
   justify-content: center;
   will-change: transform;
   padding: 0 em($pad-mob);
+  transition: background-color $tfunc-main 0.2s, box-shadow $tfunc-main 0.2s;
+
+  &.isScrolled {
+    background-color: $color-light;
+    box-shadow: 0 0 20px 0 rgba($color-dark, 0.3);
+  }
 
   //== WRAP
   &__wrap {
@@ -20,7 +26,7 @@
     padding-top: em($header-mob);
     background-color: $color-light;
     transform: translateX(-105%);
-    transition: transform .4s $tfunc-main;
+    transition: transform 0.4s $tfunc-main;
 
     &.isOpened {
       transform: translateX(0);

@@ -163,12 +163,14 @@
 
 "use strict";
 
+var _Header = _interopRequireDefault(__webpack_require__(/*! ./modules/Header */ "./src/js/modules/Header.js"));
 var _Hero = _interopRequireDefault(__webpack_require__(/*! ./modules/Hero */ "./src/js/modules/Hero.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // ================ BEGIN APP.JS ================ //
 
 var callback = function callback() {
   var env = "development";
   if (env === 'development') console.log('main module loaded.');
 
+  new _Header.default(document.querySelector('.header'));
   new _Hero.default(document.querySelector('.hero'));
 };
 
@@ -178,6 +180,73 @@ if (document.readyState === 'complete' || document.readyState !== 'loading' && !
   document.addEventListener('DOMContentLoaded', callback);
 }
 // ================ END APP.JS ================ //
+
+/***/ }),
+
+/***/ "./src/js/modules/Header.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/Header.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var _default =
+function _default(block) {_classCallCheck(this, _default);
+  this.block = block;
+  var context = this;
+  var blockName = this.block.getAttribute('class').split(' ')[0];
+
+  var burger = this.block.querySelector(".".concat(blockName, "__burger"));
+  var nav = this.block.querySelector(".".concat(blockName, "__wrap"));
+  var links = this.block.querySelectorAll('.nav__link');
+  var scrollPos = 0;
+  var scrollPosHeader = 0;
+
+  /** gerScrollPos */
+  var gerScrollPos = function gerScrollPos() {
+    scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    console.log(scrollPos);
+  };
+
+  /** toggleElements */
+  var toggleElements = function toggleElements() {
+    if (burger.classList.contains('isActive')) {
+      burger.classList.remove('isActive');
+      nav.classList.remove('isOpened');
+      document.body.classList.remove('isFixed');
+      window.scrollTo(0, scrollPos);
+    } else {
+      gerScrollPos();
+      burger.classList.add('isActive');
+      nav.classList.add('isOpened');
+      document.body.classList.add('isFixed');
+    }
+  };
+
+  window.addEventListener('scroll', function () {
+    scrollPosHeader = this.pageYOffset || document.documentElement.scrollTop;
+    if (scrollPosHeader > 100) {
+      context.block.classList.add('isScrolled');
+    } else {
+      context.block.classList.remove('isScrolled');
+    }
+  });
+
+  burger.addEventListener('click', function () {
+    toggleElements();
+  });
+
+  Array.prototype.forEach.call(links, function (link) {
+    link.addEventListener('click', function () {
+      toggleElements();
+      for (var i = 0; i < links.length; i += 1) {
+        links[i].classList.remove('isCurrent');
+      }
+      link.classList.add('isCurrent');
+    });
+  });
+};exports.default = _default;
 
 /***/ }),
 

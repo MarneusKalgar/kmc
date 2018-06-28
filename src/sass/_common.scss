@@ -1,3 +1,14 @@
+body {
+  &.isFixed {
+    @include position(fixed, 0 0 0 0);
+    overflow: hidden;
+  }
+}
+
 .section {
   min-height: 100vh;
+}
+
+.container {
+  padding: 0 em($pad-mob);
 }

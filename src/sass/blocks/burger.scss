@@ -1,6 +1,6 @@
 .burger {
   $self: &;
-  $delay: 0.35s;
+  $delay: 0.2s;
 
   @include position(absolute, 50% null null em(25px));
   @include size(em(40px), em(45px));
@@ -15,11 +15,6 @@
   }
 
   &.isActive {
-    &::before {
-      opacity: 0;
-      transition: all 0.5s $tfunc-main;
-    }
-
     #{ $self }__line {
       background-color: rgba(0,0,0,0);
 
@@ -62,7 +57,7 @@
       @include size(100%, 100%);
 
       border-radius: inherit;
-      background-color: inherit;
+      background-color: $color-decor-main;
       transform: translate(0, 0) rotateZ(0deg);
       transform-origin: 50% 50%;
       transition: top $delay $tfunc-main $delay, transform $delay $tfunc-main 0s, background-color 0.4s ease;
