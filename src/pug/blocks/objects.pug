@@ -1,12 +1,13 @@
 mixin object-item(item)
   +e.item
-    +e.IMG.img(src="assets/img/objects/objects-" + item.src + "-thumb.jpg", alt=item.caption)
-    +e.H3.caption= item.caption
+    +e.A.link(href="#")
+      +e.IMG.img(src="assets/img/objects/objects-" + item.src + "-thumb.jpg", alt=item.caption)
+      +e.H3.caption= item.caption
 
 mixin objects
-  +b.SECTION.objects#objects
+  +b.SECTION.objects.section#objects
     +e.container.container
-      +e.H2.title.title КАТАЛОГИ
+      +e.H2.title.title Объекты
       +e.UL.list
         +object-item({"src": "1", "caption": "СТРОИТЕЛЬНЫЙ ОБЪЕКТ"})
         +object-item({"src": "1", "caption": "СТРОИТЕЛЬНЫЙ ОБЪЕКТ"})

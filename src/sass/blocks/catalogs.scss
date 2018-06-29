@@ -29,6 +29,13 @@
   //== ICON
   &__icon {
     margin: em(10px) 0;
+    fill: $color-decor-second;
   }
   //== ICON
+
+  //== LINK
+  &__link {
+    color: $color-decor-second;
+  }
+  //== LINK
 }

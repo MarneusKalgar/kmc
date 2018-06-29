@@ -4,7 +4,6 @@ export default class {
     // const blockName = this.block[0].getAttribute('class').split(' ')[0];
     const wrap = this.block.querySelectorAll('.product__wrap');
     let maxHeight = -1;
-    console.info(wrap);
 
     /** setEqualHeight */
     const setEqualHeight = () => {

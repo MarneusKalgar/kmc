@@ -165,7 +165,8 @@
 
 var _Header = _interopRequireDefault(__webpack_require__(/*! ./modules/Header */ "./src/js/modules/Header.js"));
 var _Hero = _interopRequireDefault(__webpack_require__(/*! ./modules/Hero */ "./src/js/modules/Hero.js"));
-var _Product = _interopRequireDefault(__webpack_require__(/*! ./modules/Product */ "./src/js/modules/Product.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // ================ BEGIN APP.JS ================ //
+var _Product = _interopRequireDefault(__webpack_require__(/*! ./modules/Product */ "./src/js/modules/Product.js"));
+var _Contacts = _interopRequireDefault(__webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // ================ BEGIN APP.JS ================ //
 
 var callback = function callback() {
   var env = "development";
@@ -174,6 +175,11 @@ var callback = function callback() {
   new _Header.default(document.querySelector('.header'));
   new _Hero.default(document.querySelector('.hero'));
   new _Product.default(document.querySelector('.production'));
+  var contacts = new _Contacts.default(document.querySelector('.contacts'));
+
+  window.initMap = function () {
+    contacts.initMap();
+  };
 };
 
 if (document.readyState === 'complete' || document.readyState !== 'loading' && !document.documentElement.doScroll) {
@@ -182,6 +188,30 @@ if (document.readyState === 'complete' || document.readyState !== 'loading' && !
   document.addEventListener('DOMContentLoaded', callback);
 }
 // ================ END APP.JS ================ //
+
+/***/ }),
+
+/***/ "./src/js/modules/Contacts.js":
+/*!************************************!*\
+  !*** ./src/js/modules/Contacts.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var _default = /*#__PURE__*/function () {
+  function _default(block) {_classCallCheck(this, _default);
+    this.block = block;
+    // const blockName = this.block[0].getAttribute('class').split(' ')[0];
+    this.map = document.getElementById('map');
+  }_createClass(_default, [{ key: "initMap", value: function initMap()
+
+    {
+      new google.maps.Map(this.map, { // eslint-disable-line
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8 });
+
+    } }]);return _default;}();exports.default = _default;
 
 /***/ }),
 
@@ -289,7 +319,6 @@ function _default(block) {_classCallCheck(this, _default);
   // const blockName = this.block[0].getAttribute('class').split(' ')[0];
   var wrap = this.block.querySelectorAll('.product__wrap');
   var maxHeight = -1;
-  console.info(wrap);
 
   /** setEqualHeight */
   var setEqualHeight = function setEqualHeight() {

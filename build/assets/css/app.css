@@ -950,7 +950,7 @@ body.isFixed {
 .product {
   height: 100%;
   padding: 1.25em;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
   text-align: center;
 }
 
@@ -992,8 +992,8 @@ body.isFixed {
 .product__type {
   display: inline-block;
   padding: 0.1875em 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   font-weight: normal;
 }
 
@@ -1016,11 +1016,9 @@ body.isFixed {
 
 .production__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16.875em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   grid-gap: 1.25em;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-top: 2.5em;
 }
 
 .certificates__list {
@@ -1067,7 +1065,7 @@ body.isFixed {
       -ms-flex-align: center;
           align-items: center;
   padding: 1.25em;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
 }
 
 .catalogs__caption {
@@ -1078,6 +1076,79 @@ body.isFixed {
 
 .catalogs__icon {
   margin: 0.625em 0;
+  fill: #0176c0;
+}
+
+.catalogs__link {
+  color: #0176c0;
+}
+
+.leftovers__wrap {
+  width: 100%;
+  overflow-y: auto;
+  padding-bottom: 1.875em;
+}
+
+.leftovers__table {
+  width: 100%;
+  min-width: 31.25em;
+  font-size: 1em;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.leftovers__cell {
+  width: calc(100% / 5);
+  padding: 0.5em 0.1875em;
+  font-size: 0.875em;
+  border: 1px solid #ccc;
+}
+
+.objects__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-gap: 1.25em;
+}
+
+.objects__item {
+  min-height: 13.4375em;
+}
+
+.objects__link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #4a4a4a;
+  border: 1px solid #ccc;
+}
+
+.objects__caption {
+  padding: 0.625em;
+}
+
+.contacts__col {
+  margin-top: 1.25em;
+}
+
+.contacts__logo {
+  margin: 0 auto;
+}
+
+.contacts__list {
+  margin-top: 0.9375em;
+}
+
+.contacts__item {
+  margin-top: 0.625em;
+}
+
+.contacts__link {
+  color: #0176c0;
+}
+
+.contacts__map {
+  height: 50vmax;
 }
 
 /*# sourceMappingURL=app.css.map */

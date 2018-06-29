@@ -1,0 +1,34 @@
+.objects {
+
+  //== LIST
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
+    //grid-template-rows: repeat(auto-fill, minmax(em(215px), 1fr));
+    grid-gap: em(20px);
+  }
+  //== LIST
+
+  //== ITEM
+  &__item {
+    min-height: em(215px);
+  }
+  //== ITEM
+
+  //== LINK
+  &__link {
+    display: block;
+    @include size(100%, 100%);
+
+    text-decoration: none;
+    color: $color-text;
+    border: 1px solid $color-decor-light;
+  }
+  //== LINK
+
+  //== CAPTION
+  &__caption {
+    padding: em(10px);
+  }
+  //== CAPTION
+}

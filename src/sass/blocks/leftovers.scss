@@ -1,0 +1,29 @@
+.leftovers {
+
+  //== WRAP
+  &__wrap {
+    width: 100%;
+    overflow-y: auto;
+    padding-bottom: em(30px);
+  }
+  //== WRAP
+
+  //== TABLE
+  &__table {
+    width: 100%;
+    min-width: em(500px);
+    font-size: em(16px);
+    border-collapse: collapse;
+    border: 1px solid $color-decor-light;
+  }
+  //== TABLE
+
+  //== CELL
+  &__cell {
+    width: calc(100% / 5);
+    padding: em(8px) em(3px);
+    font-size: em(14px);
+    border: 1px solid $color-decor-light;
+  }
+  //== CELL
+}

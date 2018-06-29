@@ -1,0 +1,38 @@
+.contacts {
+
+  //== COL
+  &__col {
+    margin-top: em(20px);
+  }
+  //== COL
+
+  //== LOGO
+  &__logo {
+    margin: 0 auto;
+  }
+  //== LOGO
+
+  //== LIST
+  &__list {
+    margin-top: em(15px);
+  }
+  //== LIST
+
+  //== ITEM
+  &__item {
+    margin-top: em(10px);
+  }
+  //== ITEM
+
+  //== LINK
+  &__link {
+    color: $color-decor-second;
+  }
+  //== LINK
+
+  //== MAP
+  &__map {
+    height: 50vmax;
+  }
+  //== MAP
+}
