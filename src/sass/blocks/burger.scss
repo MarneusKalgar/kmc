@@ -7,6 +7,7 @@
 
   z-index: 1;
   transform: translate(0, -50%);
+  pointer-events: auto;
 
   &:hover,
   &:active,

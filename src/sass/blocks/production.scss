@@ -1,0 +1,17 @@
+.production {
+
+  //== TEXT
+  &__text {
+    text-align: left;
+  }
+  //== TEXT
+
+  //== LIST
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(em(270px), 1fr));
+    grid-gap: em(20px);
+    justify-content: center;
+  }
+  //== LIST
+}

@@ -1,0 +1,25 @@
+.certificates {
+
+  //== LIST
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 em(-20px);
+  }
+  //== LIST
+
+  //== ITEM
+  &__item {
+    width: em(170px);
+    margin: em(20px);
+  }
+  //== ITEM
+
+  //== TEXT
+  &__text {
+    text-align: left;
+  }
+  //== TEXT
+}

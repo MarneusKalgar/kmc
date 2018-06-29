@@ -1,4 +1,5 @@
 .logo {
   display: block;
   @include size(em(140px), em(42px));
+  transition: all 0.4s $tfunc-main;
 }

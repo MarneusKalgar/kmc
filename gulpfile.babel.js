@@ -25,28 +25,32 @@ const PATH = {
     js: 'src/js/app.js',
     styles: 'src/sass/app.scss',
     img: 'src/img/**/*',
-    fonts: 'src/fonts/**/*'
+    fonts: 'src/fonts/**/*',
+    docs: 'src/docs/*'
   },
   build: {
     html: 'build/',
     js: 'build/assets/js/',
     styles: 'build/assets/css/',
     img: 'build/assets/img/',
-    fonts: 'build/assets/fonts/'
+    fonts: 'build/assets/fonts/',
+    docs: 'build/assets/docs/'
   },
   prod: {
     html: 'prod/',
     js: 'prod/assets/js/',
     styles: 'prod/assets/css/',
     img: 'prod/assets/img/',
-    fonts: 'prod/assets/fonts/'
+    fonts: 'prod/assets/fonts/',
+    docs: 'prod/assets/docs/'
   },
   watch: {
     html: 'src/pug/**/*',
     js: 'src/js/**/*',
     styles: 'src/sass/**/*',
     img: 'src/img/**/*',
-    fonts: 'src/fonts/**/*'
+    fonts: 'src/fonts/**/*',
+    docs: 'src/docs/*'
   },
   clean: 'build/*'
 };
@@ -150,8 +154,17 @@ gulp.task('build:fonts', () => {
     .pipe(gulp.dest(PATH.build.fonts));
 });
 
+/** BUILD DOCS */
+gulp.task('build:docs', () => {
+  gulp
+    .src(PATH.src.docs)
+    .pipe($.changed(PATH.build.docs, { hasChanged: $.changed.compareSha1Digest }))
+    .pipe($.size({ title: 'docs', showFiles: true }))
+    .pipe(gulp.dest(PATH.build.docs));
+});
+
 /** BUILD ALL*/
-gulp.task('build', ['build:html', 'build:js', 'build:styles', 'build:fonts', 'build:img']);
+gulp.task('build', ['build:html', 'build:js', 'build:styles', 'build:img', 'build:fonts', 'build:docs']);
 
 /** BUILD DEV */
 gulp.task('dev', ['build', 'serve', 'watch']);
@@ -204,5 +217,10 @@ gulp.task('prod:fonts', () => {
   gulp.src(PATH.src.fonts).pipe(gulp.dest(PATH.prod.fonts));
 });
 
+/** PROD DOCS */
+gulp.task('prod:docs', () => {
+  gulp.src(PATH.src.docs).pipe(gulp.dest(PATH.prod.docs));
+});
+
 /** PROD ALL */
-gulp.task('prod', ['prod:html', 'prod:js', 'prod:styles', 'prod:fonts', 'prod:img']);
+gulp.task('prod', ['prod:html', 'prod:js', 'prod:styles', 'prod:img', 'prod:fonts', 'prod:docs']);

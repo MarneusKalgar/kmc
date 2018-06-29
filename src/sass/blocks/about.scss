@@ -1,0 +1,14 @@
+.about {
+  padding: em(30px) 0;
+
+  //== ITEM
+  &__item {
+    margin-top: em(5px);
+    text-align: left;
+
+    span {
+      margin-left: em(5px);
+    }
+  }
+  //== ITEM
+}

@@ -2,15 +2,16 @@ mixin catalogs-item(item)
   +e.item
     +e.H3.caption= item.caption
     +e.SVG.icon(width="45", height="56")
+      use(xlink:href="#pdf")
     +e.A.link(href="#") скачать
 
 mixin catalogs
-  +b.SECTION.catalogs#catalogs
+  +b.SECTION.catalogs.section#catalogs
     +e.container.container
       +e.H2.title.title КАТАЛОГИ
-        +e.UL.list
-          +catalogs-item({"caption": "Краны шаровые"})
-          +catalogs-item({"caption": "Краны шаровые"})
-          +catalogs-item({"caption": "Краны шаровые"})
-          +catalogs-item({"caption": "Краны шаровые"})
-          +catalogs-item({"caption": "Краны шаровые"})
+      +e.UL.list
+        +catalogs-item({"caption": "Краны шаровые"})
+        +catalogs-item({"caption": "Краны шаровые"})
+        +catalogs-item({"caption": "Краны шаровые"})
+        +catalogs-item({"caption": "Краны шаровые"})
+        +catalogs-item({"caption": "Краны шаровые"})

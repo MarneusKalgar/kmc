@@ -1,0 +1,34 @@
+.catalogs {
+
+  //== LIST
+  &__list {
+    display: grid;
+    grid-gap: em(20px);
+    grid-template-columns: repeat(auto-fill, minmax(em(140px), 1fr));
+  }
+  //== LIST
+
+  //== ITEM
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: em(20px);
+    border: 1px solid $color-decor-light;
+  }
+  //== ITEM
+
+  //== CAPTION
+  &__caption {
+    font-size: em(20px);
+    font-weight: normal;
+    line-height: 1.2;
+  }
+  //== CAPTION
+
+  //== ICON
+  &__icon {
+    margin: em(10px) 0;
+  }
+  //== ICON
+}
