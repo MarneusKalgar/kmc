@@ -42,8 +42,14 @@ body {
   // 1280px
   @include minW($macbook-width) {
     margin-left: em(250px);
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-top: em(30px);
+    padding-bottom: em(30px);
+  }
+
+  // 1440px
+  @include minW($laptop-lg-width) {
+    padding-top: em(70px);
+    padding-bottom: em(70px);
   }
 }
 
@@ -60,6 +66,12 @@ body {
   @include minW($macbook-width) {
     padding-left: em($pad-desk);
     padding-right: em($pad-desk);
+  }
+
+  // 1600px
+  @include minW(1600px) {
+    padding-left: em($pad-lg);
+    padding-right: em($pad-lg);
   }
 }
 

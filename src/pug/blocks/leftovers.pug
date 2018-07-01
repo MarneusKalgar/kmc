@@ -1,3 +1,11 @@
+mixin table-cell(item)
+  +e.TR.b-row
+    +e.TD.cell= item.diam
+    +e.TD.cell= item.type
+    +e.TD.cell= item.std
+    +e.TD.cell= item.full
+    +e.TD.cell= item.env
+
 mixin leftovers
   +b.SECTION.leftovers.section#leftovers
     +e.container.container
@@ -5,70 +13,22 @@ mixin leftovers
       +e.wrap
         +e.TABLE.table
           +e.THEAD.thead
-            +e.TR.trow
+            +e.TR.h-row
               +e.TH.cell.--head Диаметр
               +e.TH.cell.--head Управление
               +e.TH.cell.--head Стандартный проход, шт.
               +e.TH.cell.--head Полный проход, шт.
               +e.TH.cell.--head среда
           +e.TBODY.tbody
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
-            +e.TR.trow
-              +e.TD.cell Ду15
-              +e.TD.cell ручка
-              +e.TD.cell 222
-              +e.TD.cell 50
-              +e.TD.cell вода
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})

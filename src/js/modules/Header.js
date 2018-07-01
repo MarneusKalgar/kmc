@@ -1,3 +1,5 @@
+import SmoothScroll from 'smooth-scroll/dist/smooth-scroll.polyfills.min';
+
 export default class {
   constructor(block) {
     this.block = block;
@@ -10,28 +12,56 @@ export default class {
     let scrollPos = 0;
     let scrollPosHeader = 0;
 
+    new SmoothScroll('.nav a[href*="#"]');
+
+    // import('smooth-scroll/dist/smooth-scroll.polyfills.min.js') /* eslint-disable-line */
+    //   .then(function () {
+    //     var scroll = new SmoothScroll('.nav a[href*="#"]');
+    //   });
+
     /** gerScrollPos */
     const gerScrollPos = () => {
       scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-      // console.log(scrollPos);
     };
 
-    const smoothScroll = elem => {
-      const vpWidth = window.innerWidth;
-      const selector = elem.getAttribute('href');
-      const rect = document.querySelector(selector).getBoundingClientRect();
+    /** smoothScroll */
+    // const smoothScroll = elem => {
+    //   const vpWidth = window.innerWidth;
+    //   const selector = elem.getAttribute('href');
+    //   const rect = document.querySelector(selector).getBoundingClientRect();
+    //   let behavior = null;
 
-      if (vpWidth < 1280) {
-        window.scrollTo({
-          top: rect.top,
-          left: 0
+    //   // if (vpWidth < 1280) {
+    //   //   behavior = 'auto';
+    //   // } else {
+    //   //   behavior = 'smooth';
+    //   // }
+
+    //   // window.scroll({
+    //   //   top: rect.top,
+    //   //   left: 0,
+    //   //   behavior
+    //   // });
+    // };
+
+    /** isInViewport */
+    const isInViewport = section => {
+      const elem = document.querySelector(section);
+      const windowHeight = window.innerHeight;
+      const distance = elem.getBoundingClientRect();
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      const id = elem.getAttribute('id');
+
+      if (scrolled < windowHeight / 3) {
+        Array.prototype.forEach.call(links, link => {
+          link.classList.remove('isCurrent');
         });
-      } else {
-        window.scrollBy({
-          top: rect.top,
-          left: 0,
-          behavior: 'smooth'
+        links[0].classList.add('isCurrent');
+      } else if (scrolled > distance.top + window.pageYOffset - (windowHeight / 3) * 2) {
+        Array.prototype.forEach.call(links, link => {
+          link.classList.remove('isCurrent');
         });
+        document.querySelector(`a[href='#${id}']`).classList.add('isCurrent');
       }
     };
 
@@ -57,6 +87,15 @@ export default class {
       } else {
         context.block.classList.remove('isScrolled');
       }
+
+      // isInViewport('.hero');
+      isInViewport('.about');
+      isInViewport('.production');
+      isInViewport('.certificates');
+      isInViewport('.catalogs');
+      isInViewport('.leftovers');
+      isInViewport('.objects');
+      isInViewport('.contacts');
     });
 
     burger.addEventListener('click', () => {
@@ -70,7 +109,7 @@ export default class {
         for (let i = 0; i < links.length; i += 1) {
           links[i].classList.remove('isCurrent');
         }
-        smoothScroll(link);
+        // smoothScroll(link);
         link.classList.add('isCurrent');
       });
     });

@@ -58,6 +58,7 @@
 
     // 1280px
     @include minW($macbook-width) {
+      max-width: em(170px);
       font-size: em(80px);
     }
   }
@@ -147,6 +148,11 @@
 
       &--active {
         background-color: $color-decor-main;
+      }
+
+      // 1280px
+      @include minW($macbook-width) {
+        @include size(em(20px), em(20px));
       }
     }
     //== BULLET

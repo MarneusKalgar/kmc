@@ -199,7 +199,8 @@ if (document.readyState === 'complete' || document.readyState !== 'loading' && !
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var _default = /*#__PURE__*/function () {
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /* global google */var _default = /*#__PURE__*/function () {
+
   function _default(block) {_classCallCheck(this, _default);
     this.block = block;
     // const blockName = this.block[0].getAttribute('class').split(' ')[0];
@@ -207,10 +208,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   }_createClass(_default, [{ key: "initMap", value: function initMap()
 
     {
-      new google.maps.Map(this.map, { // eslint-disable-line
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8 });
+      var center = { lat: +this.map.getAttribute('data-lat'), lng: +this.map.getAttribute('data-lng') };
+      var map = new google.maps.Map(this.map, {
+        center: center,
+        zoom: 12 });
 
+      new google.maps.Marker({ position: center, map: map });
     } }]);return _default;}();exports.default = _default;
 
 /***/ }),
@@ -223,7 +226,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _smoothScrollPolyfills = _interopRequireDefault(__webpack_require__(/*! smooth-scroll/dist/smooth-scroll.polyfills.min */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var _default =
+
+
 function _default(block) {_classCallCheck(this, _default);
   this.block = block;
   var context = this;
@@ -235,28 +240,56 @@ function _default(block) {_classCallCheck(this, _default);
   var scrollPos = 0;
   var scrollPosHeader = 0;
 
+  new _smoothScrollPolyfills.default('.nav a[href*="#"]');
+
+  // import('smooth-scroll/dist/smooth-scroll.polyfills.min.js') /* eslint-disable-line */
+  //   .then(function () {
+  //     var scroll = new SmoothScroll('.nav a[href*="#"]');
+  //   });
+
   /** gerScrollPos */
   var gerScrollPos = function gerScrollPos() {
     scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-    // console.log(scrollPos);
   };
 
-  var smoothScroll = function smoothScroll(elem) {
-    var vpWidth = window.innerWidth;
-    var selector = elem.getAttribute('href');
-    var rect = document.querySelector(selector).getBoundingClientRect();
+  /** smoothScroll */
+  // const smoothScroll = elem => {
+  //   const vpWidth = window.innerWidth;
+  //   const selector = elem.getAttribute('href');
+  //   const rect = document.querySelector(selector).getBoundingClientRect();
+  //   let behavior = null;
 
-    if (vpWidth < 1280) {
-      window.scrollTo({
-        top: rect.top,
-        left: 0 });
+  //   // if (vpWidth < 1280) {
+  //   //   behavior = 'auto';
+  //   // } else {
+  //   //   behavior = 'smooth';
+  //   // }
 
-    } else {
-      window.scrollBy({
-        top: rect.top,
-        left: 0,
-        behavior: 'smooth' });
+  //   // window.scroll({
+  //   //   top: rect.top,
+  //   //   left: 0,
+  //   //   behavior
+  //   // });
+  // };
 
+  /** isInViewport */
+  var isInViewport = function isInViewport(section) {
+    var elem = document.querySelector(section);
+    var windowHeight = window.innerHeight;
+    var distance = elem.getBoundingClientRect();
+    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    var id = elem.getAttribute('id');
+
+    if (scrolled < windowHeight / 3) {
+      Array.prototype.forEach.call(links, function (link) {
+        link.classList.remove('isCurrent');
+      });
+      links[0].classList.add('isCurrent');
+    } else if (scrolled > distance.top + window.pageYOffset - windowHeight / 3 * 2) {
+      Array.prototype.forEach.call(links, function (link) {
+        link.classList.remove('isCurrent');
+      });
+      document.querySelector("a[href='#".concat(id, "']")).classList.add('isCurrent');
     }
   };
 
@@ -282,6 +315,15 @@ function _default(block) {_classCallCheck(this, _default);
     } else {
       context.block.classList.remove('isScrolled');
     }
+
+    // isInViewport('.hero');
+    isInViewport('.about');
+    isInViewport('.production');
+    isInViewport('.certificates');
+    isInViewport('.catalogs');
+    isInViewport('.leftovers');
+    isInViewport('.objects');
+    isInViewport('.contacts');
   });
 
   burger.addEventListener('click', function () {
@@ -295,7 +337,7 @@ function _default(block) {_classCallCheck(this, _default);
       for (var i = 0; i < links.length; i += 1) {
         links[i].classList.remove('isCurrent');
       }
-      smoothScroll(link);
+      // smoothScroll(link);
       link.classList.add('isCurrent');
     });
   });

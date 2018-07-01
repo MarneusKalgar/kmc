@@ -1,3 +1,4 @@
+/* global google */
 export default class {
   constructor(block) {
     this.block = block;
@@ -6,9 +7,11 @@ export default class {
   }
 
   initMap() {
-    new google.maps.Map(this.map, { // eslint-disable-line
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8
+    const center = { lat: +this.map.getAttribute('data-lat'), lng: +this.map.getAttribute('data-lng') };
+    const map = new google.maps.Map(this.map, {
+      center,
+      zoom: 12
     });
+    new google.maps.Marker({ position: center, map });
   }
 }

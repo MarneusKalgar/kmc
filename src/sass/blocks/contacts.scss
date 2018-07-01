@@ -17,12 +17,12 @@
     // 1280px
     @include minW($macbook-width) {
       &:first-child {
-        width: em(300px);
+        width: 30%;
         margin-left: em(30px);
       }
 
       &:last-child {
-        width: calc(100% - #{em(300px)});
+        width: 70%;
       }
     }
   }
@@ -65,6 +65,10 @@
   //== MAP
   &__map {
     height: 50vmax;
+
+    img {
+      max-height: none;
+    }
 
     // 1280px
     @include minW($macbook-width) {

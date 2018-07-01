@@ -18,6 +18,19 @@
   }
   //== TABLE
 
+  //== B-ROW
+  &__b-row {
+    transition: all 0.4s $tfunc-main;
+
+    // 1280px
+    @include minW($macbook-width) {
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+  //== B-ROW
+
   //== CELL
   &__cell {
     width: calc(100% / 5);

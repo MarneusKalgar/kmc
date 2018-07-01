@@ -5,6 +5,7 @@
   padding: em(20px);
   border: 1px solid $color-decor-light;
   text-align: center;
+  transition: all 0.4s $tfunc-main;
 
   &--tall {
     #{$self}__img {
@@ -21,6 +22,18 @@
       width: 60%;
       margin-top: em(10px);
       margin-bottom: em(5px);
+    }
+  }
+
+  // 1280px
+  @include minW($macbook-width) {
+    &:hover {
+      border-color: $color-decor-second;
+
+      #{$self}__type {
+        border-top-color: $color-decor-second;
+        border-bottom-color: $color-decor-second;
+      }
     }
   }
 
@@ -50,6 +63,7 @@
     border-top: 1px solid $color-decor-light;
     border-bottom: 1px solid $color-decor-light;
     font-weight: normal;
+    transition: all .4s $tfunc-main;
   }
   //==TYPE
 

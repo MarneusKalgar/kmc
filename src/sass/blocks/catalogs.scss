@@ -15,6 +15,14 @@
     align-items: center;
     padding: em(20px);
     border: 1px solid $color-decor-light;
+    transition: all 0.4s $tfunc-main;
+
+    // 1280px
+    @include minW($macbook-width) {
+      &:hover {
+        border-color: $color-decor-second;
+      }
+    }
   }
   //== ITEM
 

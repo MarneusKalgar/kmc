@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.0.4",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "smooth-scroll": "^14.2.0"
   }
 }
