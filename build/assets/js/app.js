@@ -238,7 +238,26 @@ function _default(block) {_classCallCheck(this, _default);
   /** gerScrollPos */
   var gerScrollPos = function gerScrollPos() {
     scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-    console.log(scrollPos);
+    // console.log(scrollPos);
+  };
+
+  var smoothScroll = function smoothScroll(elem) {
+    var vpWidth = window.innerWidth;
+    var selector = elem.getAttribute('href');
+    var rect = document.querySelector(selector).getBoundingClientRect();
+
+    if (vpWidth < 1280) {
+      window.scrollTo({
+        top: rect.top,
+        left: 0 });
+
+    } else {
+      window.scrollBy({
+        top: rect.top,
+        left: 0,
+        behavior: 'smooth' });
+
+    }
   };
 
   /** toggleElements */
@@ -270,11 +289,13 @@ function _default(block) {_classCallCheck(this, _default);
   });
 
   Array.prototype.forEach.call(links, function (link) {
-    link.addEventListener('click', function () {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
       toggleElements();
       for (var i = 0; i < links.length; i += 1) {
         links[i].classList.remove('isCurrent');
       }
+      smoothScroll(link);
       link.classList.add('isCurrent');
     });
   });
@@ -295,7 +316,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 function _default(block) {_classCallCheck(this, _default);
   this.block = block;
-  var blockName = this.block.getAttribute('class').split(' ')[0];
+  // const blockName = this.block.getAttribute('class').split(' ')[0];
 
   new _glide.default('.glide', {
     type: 'carousel',

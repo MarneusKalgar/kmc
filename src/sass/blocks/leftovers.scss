@@ -24,6 +24,12 @@
     padding: em(8px) em(3px);
     font-size: em(14px);
     border: 1px solid $color-decor-light;
+
+    // 1280px
+    @include minW($macbook-width) {
+      font-size: em(16px);
+      padding: em(12px) em(8px);
+    }
   }
   //== CELL
 }

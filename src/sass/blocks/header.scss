@@ -14,11 +14,27 @@
   pointer-events: none;
 
   &.isScrolled {
-    // background-color: $color-light;
-    // box-shadow: 0 0 20px 0 rgba($color-dark, 0.3);
     #{$self}__logo {
       opacity: 0;
-      overflow: hidden;
+      visibility: hidden;
+    }
+  }
+
+  // 1280px
+  @include minW($macbook-width) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include size(em(250px), 100%);
+    padding-top: em(20px);
+    background-color: $color-light;
+    box-shadow: 2px 0 30px -5px rgba($color-dark, 0.3);
+
+    &.isScrolled {
+      #{$self}__logo {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
@@ -35,6 +51,13 @@
     pointer-events: auto;
 
     &.isOpened {
+      transform: translateX(0);
+    }
+
+    // 1280px
+    @include minW($macbook-width) {
+      position: static;
+      padding-top: 0;
       transform: translateX(0);
     }
   }

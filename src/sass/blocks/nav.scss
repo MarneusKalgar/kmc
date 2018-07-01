@@ -3,6 +3,20 @@
 
   overflow: auto;
 
+  // 768px
+  @include minW($tablet-width) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // 1280px
+  @include minW($macbook-width) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
   //== LIST
   &__list {
     display: flex;
@@ -11,12 +25,27 @@
     align-items: center;
     justify-content: center;
     padding-bottom: em(30px);
+
+    // 1280px
+    @include minW($macbook-width) {
+      align-items: flex-start;
+    }
   }
   //== LIST
 
   //== ITEM
   &__item {
     margin-top: 10vmin;
+
+    // 768px
+    @include minW($tablet-width) {
+      margin-top: em(40px);
+    }
+
+    // 1280px
+    //@include minW($macbook-width) {
+    //  margin-top: 6vh;
+    //}
   }
   //== ITEM
 
@@ -41,6 +70,15 @@
     &.isCurrent {
       &::after {
         transform: scaleX(1);
+      }
+    }
+
+    // 1280px
+    @include minW($macbook-width) {
+      &:hover {
+        &::after {
+          transform: scaleX(1);
+        }
       }
     }
   }

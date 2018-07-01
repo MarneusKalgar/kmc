@@ -3,10 +3,18 @@ body {
     @include position(fixed, 0 0 0 0);
     overflow: hidden;
   }
+
+  // 1280px
+  @include minW($macbook-width) {
+    &.isFixed {
+      position: static;
+      overflow: visible;
+    }
+  }
 }
 
 .app {
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 .section {
@@ -19,10 +27,40 @@ body {
     line-height: 1.5;
     // text-align: left;
   }
+
+  &--bg {
+    background-color: #f7f7f7;
+  }
+
+  // 768px
+  @include minW($tablet-width) {
+    min-height: em(500px);
+    padding-top: em(70px);
+    padding-bottom: em(70px);
+  }
+
+  // 1280px
+  @include minW($macbook-width) {
+    margin-left: em(250px);
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
 }
 
 .container {
   padding: 0 em($pad-mob);
+
+  // 768px
+  @include minW($tablet-width) {
+    padding-left: em($pad-tab);
+    padding-right: em($pad-tab);
+  }
+
+  // 1280px
+  @include minW($macbook-width) {
+    padding-left: em($pad-desk);
+    padding-right: em($pad-desk);
+  }
 }
 
 .title {
@@ -33,4 +71,9 @@ body {
   text-align: center;
   text-transform: uppercase;
   border-bottom: 2px solid $color-decor-second;
+
+  // 1280px
+  @include minW($macbook-width) {
+    font-size: em(36px);
+  }
 }

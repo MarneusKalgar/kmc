@@ -13,7 +13,26 @@ export default class {
     /** gerScrollPos */
     const gerScrollPos = () => {
       scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-      console.log(scrollPos);
+      // console.log(scrollPos);
+    };
+
+    const smoothScroll = elem => {
+      const vpWidth = window.innerWidth;
+      const selector = elem.getAttribute('href');
+      const rect = document.querySelector(selector).getBoundingClientRect();
+
+      if (vpWidth < 1280) {
+        window.scrollTo({
+          top: rect.top,
+          left: 0
+        });
+      } else {
+        window.scrollBy({
+          top: rect.top,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
     };
 
     /** toggleElements */
@@ -45,11 +64,13 @@ export default class {
     });
 
     Array.prototype.forEach.call(links, link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
         toggleElements();
         for (let i = 0; i < links.length; i += 1) {
           links[i].classList.remove('isCurrent');
         }
+        smoothScroll(link);
         link.classList.add('isCurrent');
       });
     });

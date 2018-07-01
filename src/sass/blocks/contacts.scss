@@ -1,20 +1,52 @@
 .contacts {
 
+  //== ROW
+  &__row {
+    // 1280px
+    @include minW($macbook-width) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  //== ROW
+
   //== COL
   &__col {
     margin-top: em(20px);
+
+    // 1280px
+    @include minW($macbook-width) {
+      &:first-child {
+        width: em(300px);
+        margin-left: em(30px);
+      }
+
+      &:last-child {
+        width: calc(100% - #{em(300px)});
+      }
+    }
   }
   //== COL
 
   //== LOGO
   &__logo {
     margin: 0 auto;
+
+    // 1280px
+    @include minW($macbook-width) {
+      margin: 0;
+    }
   }
   //== LOGO
 
   //== LIST
   &__list {
     margin-top: em(15px);
+
+    // 1280px
+    @include minW($macbook-width) {
+      text-align: left;
+    }
   }
   //== LIST
 
@@ -33,6 +65,11 @@
   //== MAP
   &__map {
     height: 50vmax;
+
+    // 1280px
+    @include minW($macbook-width) {
+      height: 70vh;
+    }
   }
   //== MAP
 }

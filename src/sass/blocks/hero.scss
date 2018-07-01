@@ -24,6 +24,11 @@
       z-index: 0;
       background-color: rgba($color-dark, 0.2);
     }
+
+    // 1024px
+    @include minW($ipad-width) {
+      background-size: cover;
+    }
   }
   //== SLIDE
 
@@ -41,11 +46,30 @@
     &--lg {
       font-size: 10vw;
     }
+
+    // 1024px
+    @include minW($ipad-width) {
+      font-size: em(90px);
+
+      &--lg {
+        font-size: em(100px);
+      }
+    }
+
+    // 1280px
+    @include minW($macbook-width) {
+      font-size: em(80px);
+    }
   }
   //== TITLE
 
   //== GLIDE
   .glide {
+
+    @include minW($macbook-width) {
+      width: calc(100% - #{em(250px)});
+      margin-left: em(250px);
+    }
 
     //== ARROW
     &__arrow {
@@ -54,9 +78,14 @@
       @include size(em(40px), em(40px));
       transform: translate(0, -50%);
 
+      &:focus {
+        outline: none;
+      }
+
       svg {
         @include size(100%, 100%);
         fill: $color-light;
+        transition: fill 0.4s $tfunc-main;
       }
 
       &--right {
@@ -69,6 +98,28 @@
 
       &--left {
         left: em(-5px);
+      }
+
+      // 768px
+      @include minW($tablet-width) {
+        @include size(em(60px), em(60px));
+
+        &--right {
+          right: 0;
+        }
+
+        &--left {
+          left: 0;
+        }
+      }
+
+      // 1280px
+      @include minW($macbook-width) {
+        &:hover {
+          svg {
+            fill: $color-decor-main;
+          }
+        }
       }
     }
     //== ARROW
