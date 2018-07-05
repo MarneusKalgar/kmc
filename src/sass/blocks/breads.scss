@@ -1,0 +1,40 @@
+.breads {
+  $self: &;
+
+  &__list {
+    display: flex;
+    margin: 0 em(-10px);
+  }
+
+  &__item {
+    margin: 0 em(10px);
+
+    &--current {
+      #{$self}__link {
+        color: $color-text;
+        text-decoration: none;
+        pointer-events: none;
+      }
+    }
+
+    &--prev {
+      margin-right: 0;
+      &::after {
+        content: '/';
+        display: inline-block;
+        margin-left: em(5px);
+      }
+    }
+  }
+
+  &__link {
+    color: $color-decor-second;
+
+    // 1280px
+    @include minW($macbook-width) {
+      &:hover {
+        color: darken($color-decor-second, 5%);
+      }
+    }
+  }
+}

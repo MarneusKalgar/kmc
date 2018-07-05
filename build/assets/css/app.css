@@ -684,6 +684,43 @@ body.isFixed {
   }
 }
 
+.breads__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -0.625em;
+}
+
+.breads__item {
+  margin: 0 0.625em;
+}
+
+.breads__item--current .breads__link {
+  color: #4a4a4a;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.breads__item--prev {
+  margin-right: 0;
+}
+
+.breads__item--prev::after {
+  content: '/';
+  display: inline-block;
+  margin-left: 0.3125em;
+}
+
+.breads__link {
+  color: #0176c0;
+}
+
+@media screen and (min-width: 1280px) {
+  .breads__link:hover {
+    color: #0166a7;
+  }
+}
+
 .burger {
   position: absolute;
   top: 50%;
@@ -1507,6 +1544,20 @@ body.isFixed {
   .contacts__map {
     height: 70vh;
   }
+}
+
+.valves {
+  text-align: left;
+}
+
+.valves__title {
+  margin-top: 0.9375em;
+}
+
+.valves__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-gap: 1.25em;
 }
 
 /*# sourceMappingURL=app.css.map */

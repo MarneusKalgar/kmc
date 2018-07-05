@@ -4,7 +4,7 @@ extends ../_layouts/main
 //- Pass your variables through this block.
 block variables
 
-  - let title = 'KMC Corporation';
+  - let title = 'Краны шаровые';
   - let debug = false;
 
 //- Debug links. Add some.
@@ -12,18 +12,11 @@ append debug_links
   //- a(href='http://google.com') google, for example
 
 block header
-  +header({"class": "--main", "config": "main"})
+  +header({"class": "", "config": ""})
 
 block body
   main
-    +hero()
-    +about()
-    +production()
-    +certificates()
-    +catalogs()
-    +leftovers()
-    +objects()
-    +contacts()
+    +valves()
 
 block footer
 

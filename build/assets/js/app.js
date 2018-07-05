@@ -172,15 +172,17 @@ var callback = function callback() {
   var env = "development";
   if (env === 'development') console.log('main module loaded.');
 
-  new _Header.default(document.querySelector('.header'));
-  new _Hero.default(document.querySelector('.hero'));
-  new _Product.default(document.querySelector('.production'));
-  var contacts = new _Contacts.default(document.querySelector('.contacts'));
-
-  window.googleMapsScriptLoaded = function () {
-    contacts.googleMapsScriptLoaded();
-  };
-  contacts.appendMapScript();
+  var contacts = null;
+  if (document.querySelector('.header--main')) new _Header.default(document.querySelector('.header--main'));
+  if (document.querySelector('.hero')) new _Hero.default(document.querySelector('.hero'));
+  if (document.querySelector('.production')) new _Product.default(document.querySelector('.production'));
+  if (document.querySelector('.contacts')) {
+    contacts = new _Contacts.default(document.querySelector('.contacts'));
+    window.googleMapsScriptLoaded = function () {
+      contacts.googleMapsScriptLoaded();
+    };
+    contacts.appendMapScript();
+  }
 };
 
 if (document.readyState === 'complete' || document.readyState !== 'loading' && !document.documentElement.doScroll) {

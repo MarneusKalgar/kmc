@@ -1,15 +1,31 @@
-mixin header
-  +b.HEADER.header
-    +burger({"class": "__burger"})
-    +logo({"class": "__logo"})
-    +e.wrap
-      +b.NAV.nav
-        +e.UL.list
-          +e.item: +e.A.link.isCurrent(data-scroll href="#main") Главная
-          +e.item: +e.A.link(data-scroll href="#about") О Компании
-          +e.item: +e.A.link(data-scroll href="#production") Продукция
-          +e.item: +e.A.link(data-scroll href="#certificates") Сертификаты
-          +e.item: +e.A.link(data-scroll href="#catalogs") Каталоги
-          +e.item: +e.A.link(data-scroll href="#leftovers") Остатки на складе
-          +e.item: +e.A.link(data-scroll href="#objects") Объекты
-          +e.item: +e.A.link(data-scroll href="#contacts") Контакты
+mixin header(item)
+  +b.HEADER.header(class=item.class)
+    if item.config == "main"
+      +burger({"class": "__burger"})
+      +logo({"class": "__logo"})
+      +e.wrap
+        +b.NAV.nav
+          +e.UL.list
+            +e.item: +e.A.link.isCurrent(data-scroll href="#main") Главная
+            +e.item: +e.A.link(data-scroll href="#about") О Компании
+            +e.item: +e.A.link(data-scroll href="#production") Продукция
+            +e.item: +e.A.link(data-scroll href="#certificates") Сертификаты
+            +e.item: +e.A.link(data-scroll href="#catalogs") Каталоги
+            +e.item: +e.A.link(data-scroll href="#leftovers") Остатки на складе
+            +e.item: +e.A.link(data-scroll href="#objects") Объекты
+            +e.item: +e.A.link(data-scroll href="#contacts") Контакты
+
+    else
+      +burger({"class": "__burger"})
+      +logo({"class": "__logo"})
+      +e.wrap
+        +b.NAV.nav
+          +e.UL.list
+            +e.item: +e.A.link(href="index.html#main") Главная
+            +e.item: +e.A.link(href="index.html#about") О Компании
+            +e.item: +e.A.link(href="index.html#production") Продукция
+            +e.item: +e.A.link(href="index.html#certificates") Сертификаты
+            +e.item: +e.A.link(href="index.html#catalogs") Каталоги
+            +e.item: +e.A.link(href="index.html#leftovers") Остатки на складе
+            +e.item: +e.A.link(href="index.html#objects") Объекты
+            +e.item: +e.A.link(href="index.html#contacts") Контакты

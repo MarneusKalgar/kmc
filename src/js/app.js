@@ -8,15 +8,17 @@ const callback = () => {
   const env = process.env.NODE_ENV;
   if (env === 'development') console.log('main module loaded.');
 
-  new Header(document.querySelector('.header'));
-  new Hero(document.querySelector('.hero'));
-  new Product(document.querySelector('.production'));
-  const contacts = new Contacts(document.querySelector('.contacts'));
-
-  window.googleMapsScriptLoaded = function() {
-    contacts.googleMapsScriptLoaded();
-  };
-  contacts.appendMapScript();
+  let contacts = null;
+  if (document.querySelector('.header--main')) new Header(document.querySelector('.header--main'));
+  if (document.querySelector('.hero')) new Hero(document.querySelector('.hero'));
+  if (document.querySelector('.production')) new Product(document.querySelector('.production'));
+  if (document.querySelector('.contacts')) {
+    contacts = new Contacts(document.querySelector('.contacts'));
+    window.googleMapsScriptLoaded = function() {
+      contacts.googleMapsScriptLoaded();
+    };
+    contacts.appendMapScript();
+  }
 };
 
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
