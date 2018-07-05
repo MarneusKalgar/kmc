@@ -86,4 +86,12 @@
     color: $color-decor-second;
   }
   //== LINK
+
+  //== ANCHOR
+  &__anchor {
+    display: block;
+    text-decoration: none;
+    color: unset;
+  }
+  //== ANCHOR
 }

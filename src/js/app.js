@@ -13,9 +13,10 @@ const callback = () => {
   new Product(document.querySelector('.production'));
   const contacts = new Contacts(document.querySelector('.contacts'));
 
-  window.initMap = function() {
-    contacts.initMap();
+  window.googleMapsScriptLoaded = function() {
+    contacts.googleMapsScriptLoaded();
   };
+  contacts.appendMapScript();
 };
 
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {

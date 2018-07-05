@@ -1,12 +1,19 @@
 mixin product(item)
   +b.product(class=item.class)
-    +e.H3.caption= item.caption
-    +e.H4.type= item.type
-    +e.wrap
-      if item.config == "stack"
-        +e.IMG.img(src="assets/img/products/" + item.src + "-1.png", alt=item.caption)
-        +e.IMG.img(src="assets/img/products/" + item.src + "-2.png", alt=item.caption)
-      else
-        +e.IMG.img(src="assets/img/products/" + item.src + ".png", alt=item.caption)
-    +e.P.desc= item.desc
-    +e.A.link(href="assets/docs/" + item.href + ".pdf", target="_blank", rel="noopener noreferrer") Характеристики
+    if item.level == "top"
+      +e.A.anchor(href=item.anchor)
+        +e.H3.caption= item.caption
+        +e.wrap
+          +e.IMG.img(src="assets/img/products/" + item.src + ".png", alt=item.caption)
+
+    else
+      +e.H3.caption= item.caption
+      +e.H4.type= item.type
+      +e.wrap
+        if item.config == "stack"
+          +e.IMG.img(src="assets/img/products/" + item.src + "-1.png", alt=item.caption)
+          +e.IMG.img(src="assets/img/products/" + item.src + "-2.png", alt=item.caption)
+        else
+          +e.IMG.img(src="assets/img/products/" + item.src + ".png", alt=item.caption)
+      +e.P.desc= item.desc
+      +e.A.link(href="assets/docs/" + item.href + ".pdf", target="_blank", rel="noopener noreferrer") Характеристики

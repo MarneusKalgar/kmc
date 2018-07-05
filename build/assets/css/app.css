@@ -1189,6 +1189,23 @@ body.isFixed {
   margin-left: 0.3125em;
 }
 
+.about__text {
+  text-align: left;
+}
+
+.about__list {
+  margin-bottom: 1.25em;
+}
+
+.about__list--doted {
+  margin-left: 1.25em;
+  list-style-type: disc;
+}
+
+.about__subtitle {
+  text-align: left;
+}
+
 .product {
   height: 100%;
   padding: 1.25em;
@@ -1267,6 +1284,12 @@ body.isFixed {
   color: #0176c0;
 }
 
+.product__anchor {
+  display: block;
+  text-decoration: none;
+  color: unset;
+}
+
 .production__text {
   text-align: left;
 }
@@ -1275,7 +1298,8 @@ body.isFixed {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   grid-gap: 1.25em;
-  margin-top: 2.5em;
+  max-width: 35em;
+  margin: 2.5em auto 0;
 }
 
 .certificates__list {
@@ -1306,6 +1330,8 @@ body.isFixed {
   display: grid;
   grid-gap: 1.25em;
   grid-template-columns: repeat(auto-fill, minmax(8.75em, 1fr));
+  max-width: 56.25em;
+  margin: 0 auto;
 }
 
 .catalogs__item {
