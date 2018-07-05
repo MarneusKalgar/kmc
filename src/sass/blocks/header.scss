@@ -38,6 +38,17 @@
     }
   }
 
+  // 1440px
+  @include minW($laptop-lg-width) {
+    padding-top: 6vh;
+  }
+
+  // 1900px
+  @include minW($full-hd-width) {
+    width: em(350px);
+    padding-left: em(50px);
+  }
+
   //== WRAP
   &__wrap {
     @include position(absolute, 0 null null 0);
@@ -68,6 +79,11 @@
     position: relative;
     z-index: 1;
     pointer-events: auto;
+
+    // 1900px
+    @include minW($full-hd-width) {
+      @include size(em(140px * 1.2), em(42px * 1.2));
+    }
   }
   //== LOGO
 }

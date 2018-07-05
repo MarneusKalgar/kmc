@@ -4,7 +4,8 @@
   &__wrap {
     width: 100%;
     overflow-y: auto;
-    padding-bottom: em(30px);
+    //padding-bottom: em(30px);
+    box-shadow: 0 0 30px -10px rgba($color-dark, 0.5);
   }
   //== WRAP
 
@@ -14,20 +15,27 @@
     min-width: em(500px);
     font-size: em(16px);
     border-collapse: collapse;
-    border: 1px solid $color-decor-light;
+    // border: 1px solid $color-decor-light;
+    //box-shadow: 0 0 30px -10px rgba($color-dark, 0.5);
   }
   //== TABLE
 
   //== B-ROW
   &__b-row {
+    border-top: 1px solid lighten($color-decor-light, 10%);
+    border-bottom: 1px solid lighten($color-decor-light, 10%);
     transition: all 0.4s $tfunc-main;
 
-    // 1280px
-    @include minW($macbook-width) {
-      &:hover {
-        background-color: #eee;
-      }
+    &:nth-child(odd) {
+      background-color: lighten($color-decor-light, 15%);
     }
+
+    // 1280px
+    // @include minW($macbook-width) {
+    //   &:hover {
+    //     background-color: #eee;
+    //   }
+    // }
   }
   //== B-ROW
 
@@ -36,7 +44,7 @@
     width: calc(100% / 5);
     padding: em(8px) em(3px);
     font-size: em(14px);
-    border: 1px solid $color-decor-light;
+    // border: 1px solid $color-decor-light;
 
     // 1280px
     @include minW($macbook-width) {

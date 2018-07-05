@@ -1,20 +1,32 @@
 mixin hero
   +b.SECTION.hero#main
+    //-+e.heading
+    //-  +e.H1.slogan
+    //-    span Мировой лидер
+    //-    span В разработке и производстве шаровых кранов
     +e.slider.glide
       +e.track(class="glide__track", data-glide-el="track")
         +e.slides(class="glide__slides")
           +e.slide(class="glide__slide", style="background-image: url('assets/img/hero/hero-slide-1.jpg')")
             +e.inner
-              +e.H2.title Газовая промышленность
+              +e.H2.title Мировой лидер
+              +e.H3.subtitle В разработке и производстве шаровых кранов
+              //-Газовая промышленность
           +e.slide(class="glide__slide", style="background-image: url('assets/img/hero/hero-slide-2.jpg')")
             +e.inner
-              +e.H2.title Индивидуальный тепловой пункт
+              +e.H2.title Мировой лидер
+              +e.H3.subtitle В разработке и производстве шаровых кранов
+              //-+e.H2.title Индивидуальный тепловой пункт
           +e.slide(class="glide__slide", style="background-image: url('assets/img/hero/hero-slide-3.jpg')")
             +e.inner
-              +e.H2.title Нефтяная промышленность
+              +e.H2.title Мировой лидер
+              +e.H3.subtitle В разработке и производстве шаровых кранов
+              //-+e.H2.title Нефтяная промышленность
           +e.slide(class="glide__slide", style="background-image: url('assets/img/hero/hero-slide-4.jpg')")
             +e.inner
-              +e.H2.title.--lg ТЭЦ
+              +e.H2.title Мировой лидер
+              +e.H3.subtitle В разработке и производстве шаровых кранов
+              //-+e.H2.title.--lg ТЭЦ
 
       .glide__arrows(data-glide-el='controls')
         button.glide__arrow.glide__arrow--left(type="button", data-glide-dir='<')
