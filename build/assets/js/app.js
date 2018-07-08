@@ -163,21 +163,21 @@
 
 "use strict";
 
-var _Header = _interopRequireDefault(__webpack_require__(/*! ./modules/Header */ "./src/js/modules/Header.js"));
-var _Hero = _interopRequireDefault(__webpack_require__(/*! ./modules/Hero */ "./src/js/modules/Hero.js"));
-var _Product = _interopRequireDefault(__webpack_require__(/*! ./modules/Product */ "./src/js/modules/Product.js"));
-var _Contacts = _interopRequireDefault(__webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // ================ BEGIN APP.JS ================ //
+var _Header = __webpack_require__(/*! ./modules/Header */ "./src/js/modules/Header.js");
+var _Hero = __webpack_require__(/*! ./modules/Hero */ "./src/js/modules/Hero.js");
+var _EqualList = __webpack_require__(/*! ./modules/EqualList */ "./src/js/modules/EqualList.js");
+var _Contacts = __webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"); // ================ BEGIN APP.JS ================ //
 
 var callback = function callback() {
   var env = "development";
   if (env === 'development') console.log('main module loaded.');
 
   var contacts = null;
-  if (document.querySelector('.header--main')) new _Header.default(document.querySelector('.header--main'));
-  if (document.querySelector('.hero')) new _Hero.default(document.querySelector('.hero'));
-  if (document.querySelector('.production')) new _Product.default(document.querySelector('.production'));
+  new _Header.Header(document.querySelector('.header'));
+  if (document.querySelector('.hero')) new _Hero.Hero(document.querySelector('.hero'));
+  if (document.querySelector('.equal-list')) new _EqualList.EqualList(document.querySelector('.equal-list'));
   if (document.querySelector('.contacts')) {
-    contacts = new _Contacts.default(document.querySelector('.contacts'));
+    contacts = new _Contacts.Contacts(document.querySelector('.contacts'));
     window.googleMapsScriptLoaded = function () {
       contacts.googleMapsScriptLoaded();
     };
@@ -202,14 +202,14 @@ if (document.readyState === 'complete' || document.readyState !== 'loading' && !
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /* global google */var _default = /*#__PURE__*/function () {
-
-  function _default(block) {_classCallCheck(this, _default);
+Object.defineProperty(exports, "__esModule", { value: true });exports.Contacts = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /* global google */var
+Contacts = /*#__PURE__*/function () {
+  function Contacts(block) {_classCallCheck(this, Contacts);
     this.block = block;
     this.map = document.getElementById('map');
     this.src =
     'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNlBvo4iwNwENMDLv7R692NTXgEXM_a2I&callback=googleMapsScriptLoaded';
-  }_createClass(_default, [{ key: "googleMapsScriptLoaded", value: function googleMapsScriptLoaded()
+  }_createClass(Contacts, [{ key: "googleMapsScriptLoaded", value: function googleMapsScriptLoaded()
 
     {
       var center = { lat: +this.map.getAttribute('data-lat'), lng: +this.map.getAttribute('data-lng') };
@@ -224,7 +224,46 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       var scriptEl = document.createElement('script');
       scriptEl.setAttribute('src', this.src);
       document.body.appendChild(scriptEl);
-    } }]);return _default;}();exports.default = _default;
+    } }]);return Contacts;}();exports.Contacts = Contacts;
+
+/***/ }),
+
+/***/ "./src/js/modules/EqualList.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/EqualList.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.EqualList = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var EqualList =
+function EqualList(block) {_classCallCheck(this, EqualList);
+  this.block = block;
+  // const blockName = this.block[0].getAttribute('class').split(' ')[0];
+  var wrap = this.block.querySelectorAll('.equal-wrap');
+  var maxHeight = -1;
+
+  /** setEqualHeight */
+  var setEqualHeight = function setEqualHeight() {
+    Array.prototype.forEach.call(wrap, function (elem) {
+      maxHeight = Math.max(maxHeight, elem.offsetHeight);
+    });
+
+    Array.prototype.forEach.call(wrap, function (elem) {
+      var item = elem;
+      item.style.height = "".concat(maxHeight, "px");
+    });
+  };
+
+  setTimeout(function () {
+    setEqualHeight();
+  }, 200);
+  window.addEventListener('resize', function () {
+    setTimeout(function () {
+      setEqualHeight();
+    }, 200);
+  });
+};exports.EqualList = EqualList;
 
 /***/ }),
 
@@ -236,12 +275,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _smoothScrollPolyfills = _interopRequireDefault(__webpack_require__(/*! smooth-scroll/dist/smooth-scroll.polyfills.min */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.Header = void 0;var _smoothScrollPolyfills = _interopRequireDefault(__webpack_require__(/*! smooth-scroll/dist/smooth-scroll.polyfills.min */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
 
-
-function _default(block) {_classCallCheck(this, _default);
+Header =
+function Header(block) {var _this = this;_classCallCheck(this, Header);
   this.block = block;
-  var context = this;
+  // const context = this;
   var blockName = this.block.getAttribute('class').split(' ')[0];
 
   var burger = this.block.querySelector(".".concat(blockName, "__burger"));
@@ -250,12 +289,9 @@ function _default(block) {_classCallCheck(this, _default);
   var scrollPos = 0;
   var scrollPosHeader = 0;
 
-  new _smoothScrollPolyfills.default('.nav a[href*="#"]');
-
-  // import('smooth-scroll/dist/smooth-scroll.polyfills.min.js') /* eslint-disable-line */
-  //   .then(function () {
-  //     var scroll = new SmoothScroll('.nav a[href*="#"]');
-  //   });
+  if (this.block.classList.contains("".concat(blockName, "--main"))) {
+    new _smoothScrollPolyfills.default('.nav a[href*="#"]');
+  }
 
   /** gerScrollPos */
   var gerScrollPos = function gerScrollPos() {
@@ -319,21 +355,23 @@ function _default(block) {_classCallCheck(this, _default);
   };
 
   window.addEventListener('scroll', function () {
-    scrollPosHeader = this.pageYOffset || document.documentElement.scrollTop;
+    scrollPosHeader = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollPosHeader > 100) {
-      context.block.classList.add('isScrolled');
+      _this.block.classList.add('isScrolled');
     } else {
-      context.block.classList.remove('isScrolled');
+      _this.block.classList.remove('isScrolled');
     }
 
     // isInViewport('.hero');
-    isInViewport('.about');
-    isInViewport('.production');
-    isInViewport('.certificates');
-    isInViewport('.catalogs');
-    isInViewport('.leftovers');
-    isInViewport('.objects');
-    isInViewport('.contacts');
+    if (_this.block.classList.contains("".concat(blockName, "--main"))) {
+      isInViewport('.about');
+      isInViewport('.production');
+      isInViewport('.certificates');
+      isInViewport('.catalogs');
+      isInViewport('.leftovers');
+      isInViewport('.objects');
+      isInViewport('.contacts');
+    }
   });
 
   burger.addEventListener('click', function () {
@@ -342,7 +380,8 @@ function _default(block) {_classCallCheck(this, _default);
 
   Array.prototype.forEach.call(links, function (link) {
     link.addEventListener('click', function (e) {
-      e.preventDefault();
+      if (_this.block.classList.contains("".concat(blockName, "--main"))) e.preventDefault();
+
       toggleElements();
       for (var i = 0; i < links.length; i += 1) {
         links[i].classList.remove('isCurrent');
@@ -351,7 +390,7 @@ function _default(block) {_classCallCheck(this, _default);
       link.classList.add('isCurrent');
     });
   });
-};exports.default = _default;
+};exports.Header = Header;
 
 /***/ }),
 
@@ -363,10 +402,10 @@ function _default(block) {_classCallCheck(this, _default);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _glide = _interopRequireDefault(__webpack_require__(/*! @glidejs/glide */ "./node_modules/@glidejs/glide/dist/glide.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.Hero = void 0;var _glide = _interopRequireDefault(__webpack_require__(/*! @glidejs/glide */ "./node_modules/@glidejs/glide/dist/glide.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
 
-
-function _default(block) {_classCallCheck(this, _default);
+Hero =
+function Hero(block) {_classCallCheck(this, Hero);
   this.block = block;
   // const blockName = this.block.getAttribute('class').split(' ')[0];
 
@@ -374,44 +413,7 @@ function _default(block) {_classCallCheck(this, _default);
     type: 'carousel',
     gap: 0 }).
   mount();
-};exports.default = _default;
-
-/***/ }),
-
-/***/ "./src/js/modules/Product.js":
-/*!***********************************!*\
-  !*** ./src/js/modules/Product.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var _default =
-function _default(block) {_classCallCheck(this, _default);
-  this.block = block;
-  // const blockName = this.block[0].getAttribute('class').split(' ')[0];
-  var wrap = this.block.querySelectorAll('.product__wrap');
-  var maxHeight = -1;
-
-  /** setEqualHeight */
-  var setEqualHeight = function setEqualHeight() {
-    Array.prototype.forEach.call(wrap, function (elem) {
-      maxHeight = Math.max(maxHeight, elem.offsetHeight);
-    });
-
-    Array.prototype.forEach.call(wrap, function (elem) {
-      var item = elem;
-      item.style.height = "".concat(maxHeight, "px");
-    });
-  };
-
-  setEqualHeight();
-  window.addEventListener('resize', function () {
-    setTimeout(function () {
-      setEqualHeight();
-    }, 200);
-  });
-};exports.default = _default;
+};exports.Hero = Hero;
 
 /***/ })
 

@@ -1,8 +1,8 @@
-export default class {
+export class EqualList {
   constructor(block) {
     this.block = block;
     // const blockName = this.block[0].getAttribute('class').split(' ')[0];
-    const wrap = this.block.querySelectorAll('.product__wrap');
+    const wrap = this.block.querySelectorAll('.equal-wrap');
     let maxHeight = -1;
 
     /** setEqualHeight */
@@ -17,7 +17,9 @@ export default class {
       });
     };
 
-    setEqualHeight();
+    setTimeout(() => {
+      setEqualHeight();
+    }, 200);
     window.addEventListener('resize', () => {
       setTimeout(() => {
         setEqualHeight();

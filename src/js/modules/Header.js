@@ -1,9 +1,9 @@
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll.polyfills.min';
 
-export default class {
+export class Header {
   constructor(block) {
     this.block = block;
-    const context = this;
+    // const context = this;
     const blockName = this.block.getAttribute('class').split(' ')[0];
 
     const burger = this.block.querySelector(`.${blockName}__burger`);
@@ -12,12 +12,9 @@ export default class {
     let scrollPos = 0;
     let scrollPosHeader = 0;
 
-    new SmoothScroll('.nav a[href*="#"]');
-
-    // import('smooth-scroll/dist/smooth-scroll.polyfills.min.js') /* eslint-disable-line */
-    //   .then(function () {
-    //     var scroll = new SmoothScroll('.nav a[href*="#"]');
-    //   });
+    if (this.block.classList.contains(`${blockName}--main`)) {
+      new SmoothScroll('.nav a[href*="#"]');
+    }
 
     /** gerScrollPos */
     const gerScrollPos = () => {
@@ -80,22 +77,24 @@ export default class {
       }
     };
 
-    window.addEventListener('scroll', function() {
-      scrollPosHeader = this.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener('scroll', () => {
+      scrollPosHeader = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollPosHeader > 100) {
-        context.block.classList.add('isScrolled');
+        this.block.classList.add('isScrolled');
       } else {
-        context.block.classList.remove('isScrolled');
+        this.block.classList.remove('isScrolled');
       }
 
       // isInViewport('.hero');
-      isInViewport('.about');
-      isInViewport('.production');
-      isInViewport('.certificates');
-      isInViewport('.catalogs');
-      isInViewport('.leftovers');
-      isInViewport('.objects');
-      isInViewport('.contacts');
+      if (this.block.classList.contains(`${blockName}--main`)) {
+        isInViewport('.about');
+        isInViewport('.production');
+        isInViewport('.certificates');
+        isInViewport('.catalogs');
+        isInViewport('.leftovers');
+        isInViewport('.objects');
+        isInViewport('.contacts');
+      }
     });
 
     burger.addEventListener('click', () => {
@@ -104,7 +103,8 @@ export default class {
 
     Array.prototype.forEach.call(links, link => {
       link.addEventListener('click', e => {
-        e.preventDefault();
+        if (this.block.classList.contains(`${blockName}--main`)) e.preventDefault();
+
         toggleElements();
         for (let i = 0; i < links.length; i += 1) {
           links[i].classList.remove('isCurrent');

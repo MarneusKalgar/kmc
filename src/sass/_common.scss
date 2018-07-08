@@ -91,6 +91,10 @@ body {
   text-transform: uppercase;
   border-bottom: 2px solid $color-decor-second;
 
+  &--inner {
+    border: 0;
+  }
+
   // 1280px
   @include minW($macbook-width) {
     font-size: em(36px);

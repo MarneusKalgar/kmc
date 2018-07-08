@@ -16,7 +16,40 @@ block header
 
 block body
   main
-    +valves()
+    +b.SECTION.valves.section
+      +e.container.container
+        +b.breads
+          +e.UL.list
+            +e.item.--prev: +e.A.link(href="index.html#production") Главная
+            +e.item.--current: +e.A.link(href="#") Шаровые краны
+
+        +e.H2.title.title.--inner ШАРОВЫЕ КРАНЫ
+        +e.UL.list.equal-list
+          +e.item
+            +product({
+              "class": "",
+              "level": "top",
+              "anchor": "welding-valves.html",
+              "caption": "Кран под приварку",
+              "src": "DU15-200"
+            })
+          +e.item
+            +product({
+              "class": "--stack",
+              "level": "top",
+              "anchor": "flanged-valves.html",
+              "config": "stack",
+              "caption": "Кран фланцевый",
+              "src": "flanged-2"
+            })
+          +e.item
+            +product({
+              "class": "",
+              "level": "top",
+              "anchor": "thread-valves.html",
+              "caption": "Кран резьбовой + комбинированный",
+              "src": "thread"
+            })
 
 block footer
 

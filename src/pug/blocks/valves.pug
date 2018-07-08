@@ -1,9 +1,13 @@
 mixin valves
   +b.SECTION.valves.section
     +e.container.container
-      +breads({"location": "Шаровые краны"})
-      +e.H2.title.title ШАРОВЫЕ КРАНЫ
-      +e.UL.list
+      +b.breads
+        +e.UL.list
+          +e.item.--prev: +e.A.link(href="index.html#production") Главная
+          +e.item.--current: +e.A.link(href="#") Шаровые краны
+
+      +e.H2.title.title.--inner ШАРОВЫЕ КРАНЫ
+      +e.UL.list.equal-list
         +e.item
           +product({
             "class": "",

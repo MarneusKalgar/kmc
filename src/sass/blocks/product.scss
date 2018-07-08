@@ -10,18 +10,20 @@
   &--tall {
     #{$self}__img {
       width: 60%;
+      max-width: em(200px);
     }
   }
 
   &--stack {
-    #{$self}__wrap {
-      flex-direction: column;
-    }
+    //#{$self}__wrap {
+    //  flex-direction: column;
+    //}
 
     #{$self}__img {
-      width: 60%;
-      margin-top: em(10px);
-      margin-bottom: em(5px);
+      width: 70%;
+      max-width: em(210px);
+      //margin-top: em(10px);
+      //margin-bottom: em(5px);
     }
   }
 
@@ -41,7 +43,7 @@
   &__wrap {
     display: flex;
     align-items: center;
-    margin: 0;
+    margin: em(20px) 0;
   }
   //== WRAP
 
@@ -71,18 +73,21 @@
   //== IMG
   &__img {
     width: 90%;
+    max-width: em(255px);
     margin: em(20px) auto;
   }
   //== IMG
 
   //== DESC
   &__desc {
-    font-size: em(14px);
+    margin-bottom: 0.5em;
+    text-align: left;
   }
   //== DESC
 
   //== LINK
   &__link {
+    margin-top: em(10px);
     color: $color-decor-second;
   }
   //== LINK
@@ -94,4 +99,23 @@
     color: unset;
   }
   //== ANCHOR
+
+  //== LIST
+  &__list {
+    text-align: left;
+
+    &--dot {
+      margin-left: em(20px);
+      list-style-type: disc;
+    }
+  }
+  //== LIST
+
+  //== LIST-ITEM
+  &__list-item {
+    b {
+      margin-right: em(10px);
+    }
+  }
+  //== LIST-ITEM
 }

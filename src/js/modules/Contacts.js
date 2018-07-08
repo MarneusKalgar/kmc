@@ -1,5 +1,5 @@
 /* global google */
-export default class {
+export class Contacts {
   constructor(block) {
     this.block = block;
     this.map = document.getElementById('map');
