@@ -11,7 +11,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
     grid-gap: em(20px);
-    margin-top: em(40px);
+    max-width: em(560px);
+    margin: em(40px) auto 0;
   }
   //== LIST
 }

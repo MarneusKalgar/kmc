@@ -10,4 +10,27 @@
     }
   }
   //== ITEM
+
+  //== TEXT
+  &__text {
+    text-align: left;
+  }
+  //== TEXT
+
+  //== LIST
+  &__list {
+    margin-bottom: em(20px);
+
+    &--doted {
+      margin-left: em(20px);
+      list-style-type: disc;
+    }
+  }
+  //== LIST
+
+  //== SUBTITLE
+  &__subtitle {
+    text-align: left;
+  }
+  //== SUBTITLE
 }

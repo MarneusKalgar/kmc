@@ -42,10 +42,10 @@
       margin-top: em(40px);
     }
 
-    // 1280px
-    //@include minW($macbook-width) {
-    //  margin-top: 6vh;
-    //}
+    // 1440px
+    @include minW($laptop-lg-width) {
+      margin-top: 6vh;
+    }
   }
   //== ITEM
 
@@ -80,6 +80,11 @@
           transform: scaleX(1);
         }
       }
+    }
+
+    // 1900px
+    @include minW($full-hd-width) {
+      font-size: em(24px);
     }
   }
   //== LINK

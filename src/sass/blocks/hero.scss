@@ -3,6 +3,25 @@
   height: 100vh;
   padding: 0;
 
+  //== HEADING
+  //&__heading {
+  //  @include position(absolute, em(80px) null null em($pad-mob));
+  //  z-index: 1;
+  //}
+  //== HEADING
+
+  //== SLOGAN
+  //&__slogan {
+  //  font-size: em(26px);
+  //  text-transform: uppercase;
+  //  color: $color-light;
+
+  //  span {
+  //    display: block;
+  //  }
+  //}
+  //== SLOGAN
+
   //== SLIDE
   &__slide {
     @include size(100vw, 100vh);
@@ -22,7 +41,7 @@
       @include position(absolute, 0 0 0 0);
 
       z-index: 0;
-      background-color: rgba($color-dark, 0.2);
+      background-color: rgba($color-dark, 0.35);
     }
 
     // 1024px
@@ -36,40 +55,69 @@
   &__title {
     position: relative;
     z-index: 1;
-    font-size: 8vw;
+    //font-size: 6vw;
+    font-size: 7vw;
+    //font-size: em(30px);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.01em;
     color: $color-light;
-    text-shadow: 2px 2px 5px rgba($color-dark, 0.9);
+    //text-shadow: 2px 2px 5px rgba($color-dark, 0.9);
 
-    &--lg {
-      font-size: 10vw;
-    }
+    //&--lg {
+    //  font-size: 8vw;
+    //}
 
     // 1024px
     @include minW($ipad-width) {
-      font-size: em(90px);
+      max-width: em(170px);
+      font-size: em(80px);
 
-      &--lg {
-        font-size: em(100px);
-      }
+      //&--lg {
+      //  font-size: em(100px);
+      //}
     }
 
     // 1280px
-    @include minW($macbook-width) {
-      max-width: em(170px);
-      font-size: em(80px);
-    }
+    //@include minW($macbook-width) {
+    //  max-width: em(170px);
+    //  //font-size: em(80px);
+    //}
   }
   //== TITLE
+
+  //== SUBTITLE
+  &__subtitle {
+    position: relative;
+    z-index: 1;
+    max-width: em(300px);
+    margin-top: em(10px);
+    font-size: 5vw;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-light;
+    line-height: 1.25;
+
+    // 1024px
+    @include minW($ipad-width) {
+      font-size: em(40px);
+    }
+  }
+  //== SUBTITLE
 
   //== GLIDE
   .glide {
 
+    // 1280px
     @include minW($macbook-width) {
       width: calc(100% - #{em(250px)});
       margin-left: em(250px);
+    }
+
+    // 1900px
+    @include minW($full-hd-width) {
+      width: calc(100% - #{em(350px)});
+      margin-left: em(350px);
     }
 
     //== ARROW
@@ -141,9 +189,10 @@
       @include size(em(15px), em(15px));
 
       margin: em(8px);
-      border: 2px solid $color-decor-main;
+      //border: 2px solid $color-decor-main;
       border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0);
+      background-color: $color-light;
+      //background-color: rgba(0, 0, 0, 0);
       transition: all $tfunc-main 0.4s;
 
       &--active {
@@ -151,9 +200,9 @@
       }
 
       // 1280px
-      @include minW($macbook-width) {
-        @include size(em(20px), em(20px));
-      }
+      //@include minW($macbook-width) {
+      //  @include size(em(20px), em(20px));
+      //}
     }
     //== BULLET
   }

@@ -1,0 +1,108 @@
+extends ../_layouts/main
+
+//- Don't forget that you can use block/append/prepend on blocks
+//- Pass your variables through this block.
+block variables
+
+  - let title = 'Краны шаровые резьбовые и комбинированные';
+  - let debug = false;
+
+//- Debug links. Add some.
+append debug_links
+  //- a(href='http://google.com') google, for example
+
+block header
+  +header({"class": "", "config": ""})
+
+block body
+  main
+    +b.SECTION.valves.section
+      +e.container.container
+        +b.breads
+          +e.UL.list
+            +e.item.--prev: +e.A.link(href="index.html#production") Главная
+            +e.item.--prev: +e.A.link(href="heating-valves.html") Шаровые краны
+            +e.item.--current: +e.A.link(href="#") Краны резьбовые и комбинированные
+
+        +e.H2.title.title.--inner Краны резьбовые и комбинированные
+        +e.UL.list.equal-list
+
+          +b.product(class="")
+            +e.H3.caption Кран шаровой резьбовой
+            +e.H4.type Стандартный проход
+            +e.wrap.equal-wrap
+              +e.IMG.img(src="assets/img/products/thread.png", alt="Кран шаровой резьбовой")
+            +e.UL.list
+              +e.list-item
+                b Диапазон условных проходов (Ду):
+                span 15мм -1400 мм
+              +e.list-item
+                b Тип прохода:
+                span редуцированные (стандартнопроходные)
+              +e.list-item
+                b Вид присоединения:
+                span под фланец
+              +e.list-item
+                b Способ управления:
+                span ручка или редуктор (электро-, пневмопривод) или голый шток
+              +e.list-item
+                b Покрытие корпуса:
+                span эпоксидная смола или стекловолокно (усиленное покрытие FRP)
+              +e.list-item
+                b Условное давление (Ру):
+                span 16 кг/см#[sup 2] или 25 кг/см#[sup 2] или 40 кг/см#[sup 2] (по запросу до 420 кг/смм#[sup 2])
+              +e.list-item
+                b Рабочая среда:
+                span горячая вода (по запросу: нефтепродукты, технические газы)
+              +e.list-item
+                b Температура рабочей среды:
+                span от минус 40°C до плюс 200°C (по запросу: от минус 60°C до плюс 500°C)
+              +e.list-item
+                b Клас герметичности:
+                span А (по ГОСТ 9544-2005)
+              +e.list-item
+                b Уплотнение:
+                span PTFE +25% углеродистое волокно
+            +e.A.link(href="assets/docs/thread-combined.pdf", target="_blank", rel="noopener noreferrer") Характеристики
+
+          +b.product(class="")
+            +e.H3.caption Кран шаровой комбинированный
+            +e.H4.type Стандартный проход
+            +e.wrap.equal-wrap
+              +e.IMG.img(src="assets/img/products/combined.png", alt="Кран шаровой комбинированный")
+            +e.UL.list
+              +e.list-item
+                b Диапазон условных проходов (Ду):
+                span 15мм -1400 мм
+              +e.list-item
+                b Тип прохода:
+                span редуцированные (стандартнопроходные)
+              +e.list-item
+                b Вид присоединения:
+                span под фланец
+              +e.list-item
+                b Способ управления:
+                span ручка или редуктор (электро-, пневмопривод) или голый шток
+              +e.list-item
+                b Покрытие корпуса:
+                span эпоксидная смола или стекловолокно (усиленное покрытие FRP)
+              +e.list-item
+                b Условное давление (Ру):
+                span 16 кг/см#[sup 2] или 25 кг/см#[sup 2] или 40 кг/см#[sup 2] (по запросу до 420 кг/смм#[sup 2])
+              +e.list-item
+                b Рабочая среда:
+                span горячая вода (по запросу: нефтепродукты, технические газы)
+              +e.list-item
+                b Температура рабочей среды:
+                span от минус 40°C до плюс 200°C (по запросу: от минус 60°C до плюс 500°C)
+              +e.list-item
+                b Клас герметичности:
+                span А (по ГОСТ 9544-2005)
+              +e.list-item
+                b Уплотнение:
+                span PTFE +25% углеродистое волокно
+            +e.A.link(href="assets/docs/thread-combined.pdf", target="_blank", rel="noopener noreferrer") Характеристики
+
+block footer
+
+//- Use block/append/prepend 'scripts' to override/add scripts

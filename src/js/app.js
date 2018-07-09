@@ -1,21 +1,24 @@
 // ================ BEGIN APP.JS ================ //
-import Header from './modules/Header';
-import Hero from './modules/Hero';
-import Product from './modules/Product';
-import Contacts from './modules/Contacts';
+import { Header } from './modules/Header';
+import { Hero } from './modules/Hero';
+import { EqualList } from './modules/EqualList';
+import { Contacts } from './modules/Contacts';
 
 const callback = () => {
   const env = process.env.NODE_ENV;
   if (env === 'development') console.log('main module loaded.');
 
+  let contacts = null;
   new Header(document.querySelector('.header'));
-  new Hero(document.querySelector('.hero'));
-  new Product(document.querySelector('.production'));
-  const contacts = new Contacts(document.querySelector('.contacts'));
-
-  window.initMap = function() {
-    contacts.initMap();
-  };
+  if (document.querySelector('.hero')) new Hero(document.querySelector('.hero'));
+  if (document.querySelector('.equal-list')) new EqualList(document.querySelector('.equal-list'));
+  if (document.querySelector('.contacts')) {
+    contacts = new Contacts(document.querySelector('.contacts'));
+    window.googleMapsScriptLoaded = function() {
+      contacts.googleMapsScriptLoaded();
+    };
+    contacts.appendMapScript();
+  }
 };
 
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
