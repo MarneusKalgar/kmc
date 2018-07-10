@@ -8,11 +8,33 @@
 
   //== LIST
   &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
-    grid-gap: em(20px);
-    max-width: em(560px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: em(580px);
     margin: em(40px) auto 0;
+
+    @supports (grid-area: auto) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
+      grid-gap: em(20px);
+      max-width: em(560px);
+    }
   }
   //== LIST
+
+  //== ITEM
+  &__item {
+    min-width: em(240px);
+    max-width: em(270px);
+    margin: em(10px);
+
+    @supports (grid-area: auto) {
+      min-width: none;
+      max-width: none;
+      margin: 0;
+    }
+  }
+  //== ITEM
 }

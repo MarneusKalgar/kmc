@@ -2,16 +2,31 @@
 
   //== LIST
   &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
-    //grid-template-rows: repeat(auto-fill, minmax(em(215px), 1fr));
-    grid-gap: em(20px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: em(-10px);
+
+    @supports (grid-area: auto) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
+      grid-gap: em(20px);
+      margin: 0;
+    }
   }
   //== LIST
 
   //== ITEM
   &__item {
+    max-width: em(270px);
     min-height: em(215px);
+    margin: em(10px);
+
+    @supports (grid-area: auto) {
+      max-width: none;
+      margin: 0;
+    }
   }
   //== ITEM
 

@@ -32,6 +32,10 @@
     &:hover {
       border-color: $color-decor-second;
 
+      #{$self}__caption {
+        color: $color-decor-second;
+      }
+
       #{$self}__type {
         border-top-color: $color-decor-second;
         border-bottom-color: $color-decor-second;
@@ -50,12 +54,14 @@
   //== CAPTION
   &__caption {
     //width: em(145px);
-    width: rem(215px);
+    height: em(45px);
+    max-width: em(200px);
     margin: 0 auto em(15px);
     font-size: em(20px);
     text-transform: uppercase;
     text-align: center;
     line-height: 1.3;
+    transition: all 0.4s $tfunc-main;
   }
   //== CAPTION
 
@@ -66,7 +72,7 @@
     border-top: 1px solid $color-decor-light;
     border-bottom: 1px solid $color-decor-light;
     font-weight: normal;
-    transition: all .4s $tfunc-main;
+    transition: all 0.4s $tfunc-main;
   }
   //==TYPE
 
@@ -96,7 +102,7 @@
   &__anchor {
     display: block;
     text-decoration: none;
-    color: unset;
+    color: $color-text;
   }
   //== ANCHOR
 
