@@ -1,7 +1,7 @@
 // ================ BEGIN APP.JS ================ //
 import { Header } from './modules/Header';
 import { Hero } from './modules/Hero';
-import { EqualList } from './modules/EqualList';
+// import { EqualList } from './modules/EqualList';
 import { Contacts } from './modules/Contacts';
 
 const callback = () => {
@@ -11,7 +11,7 @@ const callback = () => {
   let contacts = null;
   new Header(document.querySelector('.header'));
   if (document.querySelector('.hero')) new Hero(document.querySelector('.hero'));
-  if (document.querySelector('.equal-list')) new EqualList(document.querySelector('.equal-list'));
+  // if (document.querySelector('.equal-list')) new EqualList(document.querySelector('.equal-list'));
   if (document.querySelector('.contacts')) {
     contacts = new Contacts(document.querySelector('.contacts'));
     window.googleMapsScriptLoaded = function() {

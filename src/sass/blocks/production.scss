@@ -31,7 +31,7 @@
     margin: em(10px);
 
     @supports (grid-area: auto) {
-      min-width: none;
+      //min-width: none;
       max-width: none;
       margin: 0;
     }

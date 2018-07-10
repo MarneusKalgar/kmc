@@ -165,9 +165,9 @@
 
 var _Header = __webpack_require__(/*! ./modules/Header */ "./src/js/modules/Header.js");
 var _Hero = __webpack_require__(/*! ./modules/Hero */ "./src/js/modules/Hero.js");
-var _EqualList = __webpack_require__(/*! ./modules/EqualList */ "./src/js/modules/EqualList.js");
-var _Contacts = __webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"); // ================ BEGIN APP.JS ================ //
 
+var _Contacts = __webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"); // ================ BEGIN APP.JS ================ //
+// import { EqualList } from './modules/EqualList';
 var callback = function callback() {
   var env = "development";
   if (env === 'development') console.log('main module loaded.');
@@ -175,7 +175,7 @@ var callback = function callback() {
   var contacts = null;
   new _Header.Header(document.querySelector('.header'));
   if (document.querySelector('.hero')) new _Hero.Hero(document.querySelector('.hero'));
-  if (document.querySelector('.equal-list')) new _EqualList.EqualList(document.querySelector('.equal-list'));
+  // if (document.querySelector('.equal-list')) new EqualList(document.querySelector('.equal-list'));
   if (document.querySelector('.contacts')) {
     contacts = new _Contacts.Contacts(document.querySelector('.contacts'));
     window.googleMapsScriptLoaded = function () {
@@ -225,45 +225,6 @@ Contacts = /*#__PURE__*/function () {
       scriptEl.setAttribute('src', this.src);
       document.body.appendChild(scriptEl);
     } }]);return Contacts;}();exports.Contacts = Contacts;
-
-/***/ }),
-
-/***/ "./src/js/modules/EqualList.js":
-/*!*************************************!*\
-  !*** ./src/js/modules/EqualList.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.EqualList = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var EqualList =
-function EqualList(block) {_classCallCheck(this, EqualList);
-  this.block = block;
-  // const blockName = this.block[0].getAttribute('class').split(' ')[0];
-  var wrap = this.block.querySelectorAll('.equal-wrap');
-  var maxHeight = -1;
-
-  /** setEqualHeight */
-  var setEqualHeight = function setEqualHeight() {
-    Array.prototype.forEach.call(wrap, function (elem) {
-      maxHeight = Math.max(maxHeight, elem.offsetHeight);
-    });
-
-    Array.prototype.forEach.call(wrap, function (elem) {
-      var item = elem;
-      item.style.height = "".concat(maxHeight, "px");
-    });
-  };
-
-  setTimeout(function () {
-    setEqualHeight();
-  }, 200);
-  window.addEventListener('resize', function () {
-    setTimeout(function () {
-      setEqualHeight();
-    }, 200);
-  });
-};exports.EqualList = EqualList;
 
 /***/ }),
 

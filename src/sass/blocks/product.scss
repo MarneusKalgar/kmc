@@ -47,7 +47,13 @@
   &__wrap {
     display: flex;
     align-items: center;
+    height: em(280px);
     margin: em(20px) 0;
+
+    // 1024+
+    @include minW($ipad-width) {
+      height: em(340px);
+    }
   }
   //== WRAP
 

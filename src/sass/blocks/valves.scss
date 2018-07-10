@@ -41,7 +41,7 @@
     margin: (10px);
 
     @supports (grid-area: auto) {
-      min-width: none;
+      //min-width: none;
       max-width: none;
       width: auto;
       margin: 0;

@@ -656,8 +656,8 @@ body.isFixed {
 
 @media screen and (min-width: 1280px) {
   .container {
-    padding-left: 4.375em;
-    padding-right: 4.375em;
+    padding-left: 4.0625em;
+    padding-right: 4.0625em;
   }
 }
 
@@ -1288,7 +1288,14 @@ body.isFixed {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 17.5em;
   margin: 1.25em 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .product__wrap {
+    height: 21.25em;
+  }
 }
 
 .product__caption {
@@ -1385,7 +1392,6 @@ body.isFixed {
 
 @supports (grid-area: auto) {
   .production__item {
-    min-width: none;
     max-width: none;
     margin: 0;
   }
@@ -1702,7 +1708,6 @@ body.isFixed {
 
 @supports (grid-area: auto) {
   .valves__item {
-    min-width: none;
     max-width: none;
     width: auto;
     margin: 0;
