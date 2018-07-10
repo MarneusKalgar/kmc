@@ -883,7 +883,7 @@ body.isFixed {
 }
 
 .nav__item {
-  margin-top: 10vmin;
+  margin-top: 8vmin;
 }
 
 @media screen and (min-width: 768px) {
@@ -1084,7 +1084,7 @@ body.isFixed {
   background-color: rgba(0, 0, 0, 0.35);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (orientation: landscape), (min-width: 1024px) {
   .hero__slide {
     background-size: cover;
   }
