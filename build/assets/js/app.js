@@ -165,17 +165,21 @@
 
 var _Header = __webpack_require__(/*! ./modules/Header */ "./src/js/modules/Header.js");
 var _Hero = __webpack_require__(/*! ./modules/Hero */ "./src/js/modules/Hero.js");
-var _EqualList = __webpack_require__(/*! ./modules/EqualList */ "./src/js/modules/EqualList.js");
-var _Contacts = __webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"); // ================ BEGIN APP.JS ================ //
+var _Certificates = __webpack_require__(/*! ./modules/Certificates */ "./src/js/modules/Certificates.js");
+var _Modal = __webpack_require__(/*! ./modules/Modal */ "./src/js/modules/Modal.js");
 
+var _Contacts = __webpack_require__(/*! ./modules/Contacts */ "./src/js/modules/Contacts.js"); // ================ BEGIN APP.JS ================ //
+// import { EqualList } from './modules/EqualList';
 var callback = function callback() {
   var env = "development";
   if (env === 'development') console.log('main module loaded.');
 
   var contacts = null;
+  var modal = new _Modal.Modal(document.querySelector('.modal'));
   new _Header.Header(document.querySelector('.header'));
   if (document.querySelector('.hero')) new _Hero.Hero(document.querySelector('.hero'));
-  if (document.querySelector('.equal-list')) new _EqualList.EqualList(document.querySelector('.equal-list'));
+  if (document.querySelector('.certificates')) new _Certificates.Certificates(document.querySelector('.certificates'), modal);
+  // if (document.querySelector('.equal-list')) new EqualList(document.querySelector('.equal-list'));
   if (document.querySelector('.contacts')) {
     contacts = new _Contacts.Contacts(document.querySelector('.contacts'));
     window.googleMapsScriptLoaded = function () {
@@ -191,6 +195,38 @@ if (document.readyState === 'complete' || document.readyState !== 'loading' && !
   document.addEventListener('DOMContentLoaded', callback);
 }
 // ================ END APP.JS ================ //
+
+/***/ }),
+
+/***/ "./src/js/modules/Certificates.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/Certificates.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.Certificates = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var Certificates =
+function Certificates(block, modal) {_classCallCheck(this, Certificates);
+  this.block = block;
+  var blockName = this.block.getAttribute('class').split(' ')[0];
+  var togglers = this.block.querySelectorAll(".".concat(blockName, "__btn"));
+
+  var loadImage = function loadImage(btn) {
+    var thumbSrc = btn.querySelector(".".concat(blockName, "__img")).getAttribute('src');
+    var fullSrc = thumbSrc.slice(0, thumbSrc.length - 10);
+    console.log(fullSrc);
+
+    modal.openImageModal(fullSrc);
+    modal.show();
+  };
+
+  Array.prototype.forEach.call(togglers, function (toggler) {
+    toggler.addEventListener('click', function () {
+      loadImage(toggler);
+    });
+  });
+};exports.Certificates = Certificates;
 
 /***/ }),
 
@@ -225,45 +261,6 @@ Contacts = /*#__PURE__*/function () {
       scriptEl.setAttribute('src', this.src);
       document.body.appendChild(scriptEl);
     } }]);return Contacts;}();exports.Contacts = Contacts;
-
-/***/ }),
-
-/***/ "./src/js/modules/EqualList.js":
-/*!*************************************!*\
-  !*** ./src/js/modules/EqualList.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.EqualList = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var EqualList =
-function EqualList(block) {_classCallCheck(this, EqualList);
-  this.block = block;
-  // const blockName = this.block[0].getAttribute('class').split(' ')[0];
-  var wrap = this.block.querySelectorAll('.equal-wrap');
-  var maxHeight = -1;
-
-  /** setEqualHeight */
-  var setEqualHeight = function setEqualHeight() {
-    Array.prototype.forEach.call(wrap, function (elem) {
-      maxHeight = Math.max(maxHeight, elem.offsetHeight);
-    });
-
-    Array.prototype.forEach.call(wrap, function (elem) {
-      var item = elem;
-      item.style.height = "".concat(maxHeight, "px");
-    });
-  };
-
-  setTimeout(function () {
-    setEqualHeight();
-  }, 200);
-  window.addEventListener('resize', function () {
-    setTimeout(function () {
-      setEqualHeight();
-    }, 200);
-  });
-};exports.EqualList = EqualList;
 
 /***/ }),
 
@@ -414,6 +411,52 @@ function Hero(block) {_classCallCheck(this, Hero);
     gap: 0 }).
   mount();
 };exports.Hero = Hero;
+
+/***/ }),
+
+/***/ "./src/js/modules/Modal.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/Modal.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.Modal = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var Modal = /*#__PURE__*/function () {
+  function Modal(block) {var _this = this;_classCallCheck(this, Modal);
+    this.block = block;
+    var blockName = this.block.getAttribute('class').split(' ')[0];
+    this.inner = this.block.querySelector(".".concat(blockName, "__inner"));
+    this.img = this.block.querySelector('img');
+    var close = this.block.querySelector(".".concat(blockName, "__close"));
+    var backDrop = this.block.querySelector(".".concat(blockName, "__backdrop"));
+
+    close.addEventListener('click', function () {
+      _this.hide();
+    });
+
+    backDrop.addEventListener('click', function () {
+      _this.hide();
+    });
+  }_createClass(Modal, [{ key: "show", value: function show()
+
+    {
+      this.block.classList.add('isVisible');
+      document.body.style.overflow = 'hidden';
+    } }, { key: "hide", value: function hide()
+
+    {
+      this.block.classList.remove('isVisible');
+      this.img.setAttribute('src', '');
+      // this.img.parentNode.removeChild(this.img);
+      document.body.style.overflow = 'auto';
+    } }, { key: "openImageModal", value: function openImageModal(
+
+    src) {
+      // this.img = document.createElement('img');
+      this.img.setAttribute('src', "".concat(src, ".jpg"));
+      // this.inner.appendChild(this.img);
+    } }]);return Modal;}();exports.Modal = Modal;
 
 /***/ })
 

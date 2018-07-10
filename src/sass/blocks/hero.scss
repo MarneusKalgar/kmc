@@ -3,25 +3,6 @@
   height: 100vh;
   padding: 0;
 
-  //== HEADING
-  //&__heading {
-  //  @include position(absolute, em(80px) null null em($pad-mob));
-  //  z-index: 1;
-  //}
-  //== HEADING
-
-  //== SLOGAN
-  //&__slogan {
-  //  font-size: em(26px);
-  //  text-transform: uppercase;
-  //  color: $color-light;
-
-  //  span {
-  //    display: block;
-  //  }
-  //}
-  //== SLOGAN
-
   //== SLIDE
   &__slide {
     @include size(100vw, 100vh);
@@ -45,7 +26,7 @@
     }
 
     // 1024px
-    @include minW($ipad-width) {
+    @media screen and (orientation: landscape), (min-width: $ipad-width) {
       background-size: cover;
     }
   }

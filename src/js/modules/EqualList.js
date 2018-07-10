@@ -19,11 +19,11 @@ export class EqualList {
 
     setTimeout(() => {
       setEqualHeight();
-    }, 200);
+    }, 400);
     window.addEventListener('resize', () => {
       setTimeout(() => {
         setEqualHeight();
-      }, 200);
+      }, 400);
     });
   }
 }

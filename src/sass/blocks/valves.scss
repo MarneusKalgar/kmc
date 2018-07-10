@@ -2,17 +2,50 @@
   padding-top: em(80px);
   text-align: left;
 
+  //== TITLE
   &__title {
     margin-top: em(15px);
   }
+  //== TITLE
 
+  //== LIST
   &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
-    grid-gap: em(20px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: em(-10px);
 
+    @supports (grid-area: auto) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(em(240px), 1fr));
+      grid-gap: em(20px);
+      margin: 0;
+    }
+
+    // 1024+
     @include minW($ipad-width) {
-      grid-template-columns: repeat(auto-fill, minmax(em(400px), 1fr));
+      @supports (grid-area: auto) {
+        grid-template-columns: repeat(auto-fill, minmax(em(400px), 1fr));
+        max-width: em(1000px);
+      }
     }
   }
+  //== LIST
+
+  //== ITEM
+  &__item {
+    min-width: em(250px);
+    width: calc(50% - #{em(20px)});
+    max-width: em(440px);
+    margin: (10px);
+
+    @supports (grid-area: auto) {
+      //min-width: none;
+      max-width: none;
+      width: auto;
+      margin: 0;
+    }
+  }
+  //== ITEM
 }

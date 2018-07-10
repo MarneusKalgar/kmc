@@ -2,11 +2,19 @@
 
   //== LIST
   &__list {
-    display: grid;
-    grid-gap: em(20px);
-    grid-template-columns: repeat(auto-fill, minmax(em(140px), 1fr));
-    max-width: em(900px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: em(1200px);
     margin: 0 auto;
+
+    @supports (grid-area: auto) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(em(140px), 1fr));
+      grid-gap: em(20px);
+      max-width: em(900px);
+    }
   }
   //== LIST
 
@@ -15,9 +23,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: em(165px);
+    margin: em(10px);
     padding: em(20px);
     border: 1px solid $color-decor-light;
     transition: all 0.4s $tfunc-main;
+
+    @supports (grid-area: auto) {
+      max-width: none;
+      margin: 0;
+    }
 
     // 1280px
     @include minW($macbook-width) {
