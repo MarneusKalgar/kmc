@@ -4,7 +4,6 @@
   &__wrap {
     width: 100%;
     overflow-y: auto;
-    //padding-bottom: em(30px);
     box-shadow: 0 0 30px -10px rgba($color-dark, 0.5);
   }
   //== WRAP
@@ -15,8 +14,6 @@
     min-width: em(500px);
     font-size: em(16px);
     border-collapse: collapse;
-    // border: 1px solid $color-decor-light;
-    //box-shadow: 0 0 30px -10px rgba($color-dark, 0.5);
   }
   //== TABLE
 
@@ -30,12 +27,9 @@
       background-color: lighten($color-decor-light, 15%);
     }
 
-    // 1280px
-    // @include minW($macbook-width) {
-    //   &:hover {
-    //     background-color: #eee;
-    //   }
-    // }
+    &:last-child {
+      border-bottom: 0;
+    }
   }
   //== B-ROW
 

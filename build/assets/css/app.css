@@ -688,6 +688,107 @@ body.isFixed {
   }
 }
 
+.close {
+  position: relative;
+  height: 2.1875em;
+  width: 2.1875em;
+}
+
+.close__line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 0.1875em;
+  width: 105%;
+  background-color: #f56b36;
+}
+
+.close__line:first-child {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close__line:last-child {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.875em 3.125em;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.isVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background-color: #fff;
+}
+
+.modal__wrap {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  padding: 0.625em;
+  overflow: auto;
+}
+
+.modal__inner img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .modal__inner {
+    height: 100%;
+  }
+  .modal__inner img {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  z-index: 1;
+}
+
 .breads__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1516,6 +1617,10 @@ body.isFixed {
 
 .leftovers__b-row:nth-child(odd) {
   background-color: #f2f2f2;
+}
+
+.leftovers__b-row:last-child {
+  border-bottom: 0;
 }
 
 .leftovers__cell {

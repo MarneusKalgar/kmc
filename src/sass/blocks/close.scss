@@ -1,0 +1,18 @@
+.close {
+  position: relative;
+  @include size(em(35px), em(35px));
+
+  &__line {
+    @include position(absolute, 50% null null 50%);
+    @include size(105%, em(3px));
+    background-color: $color-decor-main;
+
+    &:first-child {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:last-child {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

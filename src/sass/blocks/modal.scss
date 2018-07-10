@@ -1,0 +1,57 @@
+.modal {
+  @include position(fixed, 0 null null 0);
+  @include size(100%, 100%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: em(30px) em(50px);
+  opacity: 0;
+  visibility: hidden;
+
+  &.isVisible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__backdrop {
+    @include position(absolute, 0 null null 0);
+    @include size(100%, 100%);
+    z-index: 0;
+    background-color: #fff;
+  }
+
+  &__wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: em(10px);
+    overflow: auto;
+  }
+
+  &__inner {
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px -10px rgba($color-dark, 0.5);
+    }
+
+    @include minW($tablet-width) {
+      height: 100%;
+
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+
+  &__close {
+    @include position(absolute, em(20px) em(20px) null null);
+    z-index: 1;
+  }
+}
