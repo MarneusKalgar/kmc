@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
 const path = require('path');
-const compression = require('compression');
+// const compression = require('compression');
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/../build'));
-app.use(compression());
+// app.use(compression());
 
 app.get('/health-check', (req, res) => {
     res.json({
