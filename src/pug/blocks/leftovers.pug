@@ -1,6 +1,7 @@
 mixin table-cell(item)
   +e.TR.b-row
     +e.TD.cell= item.diam
+    +e.TD.cell= item.pressure
     +e.TD.cell= item.type
     +e.TD.cell= item.std
     +e.TD.cell= item.full
@@ -15,20 +16,20 @@ mixin leftovers
           +e.THEAD.thead
             +e.TR.h-row
               +e.TH.cell.--head Диаметр
+              +e.TH.cell.--head Давление
               +e.TH.cell.--head Управление
               +e.TH.cell.--head Стандартный проход, шт.
               +e.TH.cell.--head Полный проход, шт.
               +e.TH.cell.--head среда
           +e.TBODY.tbody
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
-            +table-cell({"diam": "Ду15", "type": "ручка", "std": "222", "full": "50", "env": "вода"})
+            +table-cell({"diam": "20", "pressure" : "40","type": "ручка", "std": "8", "full": "5", "env": "вода"})
+            +table-cell({"diam": "25", "pressure" : "40","type": "ручка", "std": "8", "full": "-", "env": "вода"})
+            +table-cell({"diam": "40", "pressure" : "40","type": "ручка", "std": "10", "full": "-", "env": "вода"})
+            +table-cell({"diam": "50", "pressure" : "40","type": "ручка", "std": "10", "full": "5", "env": "вода"})
+            +table-cell({"diam": "100","pressure" : "25", "type": "ручка", "std": "10", "full": "4", "env": "вода"})
+            +table-cell({"diam": "125","pressure" : "25", "type": "ручка", "std": "2", "full": "2", "env": "вода"})
+            +table-cell({"diam": "150","pressure" : "25", "type": "ручка", "std": "5", "full": "6", "env": "вода"})
+            +table-cell({"diam": "150","pressure" : "25", "type": "редуктор", "std": "5", "full": "6", "env": "вода"})
+            +table-cell({"diam": "200","pressure" : "25", "type": "редуктор", "std": "4", "full": "4", "env": "вода"})
+            +table-cell({"diam": "250","pressure" : "25", "type": "редуктор", "std": "4", "full": "-", "env": "вода"})
+            +table-cell({"diam": "400","pressure" : "25", "type": "редуктор", "std": "2", "full": "2", "env": "вода"})

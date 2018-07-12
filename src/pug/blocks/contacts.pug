@@ -6,13 +6,21 @@ mixin contacts
         +e.col
           +logo({"class": "__logo"})
           //-+e.H3.caption KMC Corporation Украина
+          //- +e.UL.list
+          //-   +e.item Завод-изготовитель
+          //-   +e.item KMC Corporation
+          //-   +e.item Юридический и фактический адрес:
+          //-   +e.item 336831, Южная Корея, Yeoju-city, Heukseok-ro, 89
+          //-   +e.item: +e.A.link(href="#") +82 (31) 881-20-13
+          //-   +e.item: +e.A.link(href="#") kmc_ru@kmcvalve.co.kr
+          //-   +e.item: +e.A.link(href="#") www.kmcvalve.co.kr
           +e.UL.list
-            +e.item Завод-изготовитель
-            +e.item KMC Corporation
-            +e.item Юридический и фактический адрес:
-            +e.item 336831, Южная Корея, Yeoju-city, Heukseok-ro, 89
-            +e.item: +e.A.link(href="#") +82 (31) 881-20-13
-            +e.item: +e.A.link(href="#") kmc_ru@kmcvalve.co.kr
+            +e.item г. Киев
+            +e.item: +e.A.link(href="tel: +38 (095) 784-49-61") +38 (095) 784-49-61
+            +e.item: +e.A.link(href="mailto: kmcvalve.com.ua@gmail.com") kmcvalve.com.ua@gmail.com
             +e.item: +e.A.link(href="#") www.kmcvalve.co.kr
         +e.col
-          +e.map#map(data-lat="37.198389", data-lng="127.566768")
+          //- +e.map#map(data-lat="37.198389", data-lng="127.566768")
+          +e.map#map(data-lat="50.477899", data-lng="30.595650")
+
+
