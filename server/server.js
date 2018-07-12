@@ -4,7 +4,7 @@ const path = require('path');
 // const compression = require('compression');
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/../build'));
+app.use(express.static(__dirname + '/../prod'));
 // app.use(compression());
 
 app.get('/health-check', (req, res) => {
@@ -14,7 +14,7 @@ app.get('/health-check', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../build/index.html'));
+    res.sendFile(path.join(__dirname + '/../prod/index.html'));
 });
 
 // === START SERVER ===
