@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp --gulpfile gulpfile.babel.js dev",
     "prod": "cross-env NODE_ENV=production gulp --gulpfile gulpfile.babel.js prod",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install && yarn prod"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
