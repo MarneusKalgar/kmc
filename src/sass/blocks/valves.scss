@@ -30,6 +30,11 @@
         max-width: em(1000px);
       }
     }
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: 100%;
+    }
+
   }
   //== LIST
 
