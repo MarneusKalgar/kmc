@@ -3,15 +3,12 @@ mixin catalogs-item(item)
     +e.H3.caption= item.caption
     +e.SVG.icon(width="45", height="56")
       use(xlink:href="#pdf")
-    +e.A.link(href="#") скачать
+    +e.A.link(href=item.url) скачать
 
 mixin catalogs
   +b.SECTION.catalogs.section.--bg#catalogs
     +e.container.container
       +e.H2.title.title КАТАЛОГИ
       +e.UL.list
-        +catalogs-item({"caption": "Краны шаровые"})
-        +catalogs-item({"caption": "Краны шаровые"})
-        +catalogs-item({"caption": "Краны шаровые"})
-        +catalogs-item({"caption": "Краны шаровые"})
-        +catalogs-item({"caption": "Краны шаровые"})
+        +catalogs-item({"caption": "Общий каталог продукции КМС", "url": "catalog-common-kmc.pdf"})
+        +catalogs-item({"caption": "Газовые краны КМС", "url": "catalog-gas-kmc.pdf"})
