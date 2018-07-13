@@ -4,7 +4,7 @@ const path = require('path');
 // const compression = require('compression');
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/../prod'));
+app.use(express.static(__dirname + '/../prod', { maxage: '30d' }));
 // app.use(compression());
 
 app.get('/health-check', (req, res) => {
