@@ -1,5 +1,9 @@
 .leftovers {
 
+  &>p {
+    text-align: center;
+  }
+
   //== WRAP
   &__wrap {
     width: 100%;

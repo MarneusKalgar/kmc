@@ -5,16 +5,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     max-width: em(1200px);
     margin: 0 auto;
 
-    @supports (grid-area: auto) {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(em(160px), 1fr));
-      grid-gap: em(20px);
-      max-width: em(900px);
-    }
+    // @supports (grid-area: auto) {
+    //   display: grid;
+    //   grid-template-columns: repeat(auto-fill, minmax(em(160px), 1fr));
+    //   grid-gap: em(20px);
+    //   max-width: em(900px);
+    // }
   }
   //== LIST
 
@@ -23,23 +23,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: em(165px);
-    margin: em(10px);
+    width: 30%;
+    margin: 0 20px;
+    // height: 100%;
+    // max-width: em(200px);
+    // margin: em(10px);
     padding: em(20px);
     border: 1px solid $color-decor-light;
     transition: all 0.4s $tfunc-main;
 
-    @supports (grid-area: auto) {
-      max-width: none;
-      margin: 0;
-    }
+    // @supports (grid-area: auto) {
+    //   max-width: none;
+    //   margin: 0;
+    // }
 
     // 1280px
     @include minW($macbook-width) {
       &:hover {
         border-color: $color-decor-second;
       }
+    }
+
+    @media screen and (max-width: 600px) {
+      width: calc(50% - 20px);
+      margin: 0 10px;
     }
   }
   //== ITEM
